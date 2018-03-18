@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="stylesheets/css/timeline/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="stylesheets/css/timeline/style.css"> <!-- Resource style -->
+	<script src="javascripts/js/modernizr.js"></script> <!-- Modernizr -->
+
+	<title><%=title%></title>
+</head>
+<body>
+	<header>
+		<h1>Responsive Vertical Timeline</h1>
+	</header>
+
+	<section id="timeline" class="container">
+	<% 
+	var icon = '';
+	for (var i = 0; i < tripSteps.length; ++i)
+	{
+		if (tripSteps[i].type == 'city')
+			icon = 'images/img/timeline/icon-picture.svg';
+		else if (tripSteps[i].type == 'monument')
+			icon = 'images/img/timeline/icon-movie.svg';
+		else
+			icon = 'images/img/timeline/icon-location.svg';
+	%>
+		<div class="timeline-block">
+			<div class="timeline-img picture">
+				<img src="<%=icon%>" alt="Picture">
+			</div> <!-- timeline-img -->
+
+			<div class="timeline-content">
+				<h2><%=tripSteps[i].title%></h2>
+				<p> <%=tripSteps[i].description%> </p>
+				<a href="#0" class="read-more">Read more</a>
+				<span class="date"><%=tripSteps[i].date%></span>
+			</div> <!-- timeline-content -->
+		</div> <!-- timeline-block -->
+	<%}%>
+	</section> <!-- timeline -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="javascripts/js/timeline/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
