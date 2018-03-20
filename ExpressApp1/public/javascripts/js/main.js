@@ -28,7 +28,6 @@ jQuery(document).ready(function($)
 		setTimeout(function()
 		{
 			sectionBlockOpened.removeClass('duration2s');
-			//sectionBlockOpened.hide();
 
 			sectionBlockRevealed.removeClass('duration2s');
 

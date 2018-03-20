@@ -26,7 +26,7 @@ router.get('/', function (req, res) {
 		collection.find({}).toArray(
 			function (err, results)
 			{
-				res.render('timelineView', { title: 'Timeline', tripSteps: results });
+				res.render('timeline/timelineView', { title: 'Timeline', tripSteps: results });
 				client.close();
 			});
 	});
