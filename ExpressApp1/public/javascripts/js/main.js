@@ -16,6 +16,7 @@ jQuery(document).ready(function($)
 	{
 		isAnimated = true;
 
+		$('#mainNav').fadeIn(2000)
 
 		sectionBlockOpened.addClass('duration2s');
 
@@ -42,6 +43,8 @@ jQuery(document).ready(function($)
 		isAnimated = true;
 
 		$("body").css("overflow", "hidden");
+
+		$('#mainNav').fadeOut(2000)
 
 		sectionBlockClosed.addClass('duration2s');
 
