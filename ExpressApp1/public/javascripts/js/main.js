@@ -1,4 +1,7 @@
-jQuery(document).ready(function($)
+var ps = new PerfectScrollbar('#mainSection');
+
+
+jQuery(document).ready(function ($)
 {
 
 	isAnimated = false;
@@ -88,8 +91,10 @@ jQuery(document).ready(function($)
 	}
 
 	// Smooth scrolling using jQuery easing
-	$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+	$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function ()
+	{
+		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname)
+		{
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 			if (target.length)
@@ -150,21 +155,43 @@ jQuery(document).ready(function($)
 
 
 
-	//$('#mainSection').addEventListener('ps-scroll-y', function () { navbarCollapse() });
-	//$('#mainSection').addEventListener('ps-scroll-x', () => { navbarCollapse });
-
-	//$('#mainSection').addEventListener('ps-y-reach-end', () => { navbarCollapse });
-
-	
-	//// Hide navbar when modals trigger
-	//$('.portfolio-modal').on('show.bs.modal', function (e) {
-	//	$(".navbar").addClass("d-none");
-	//})
-	//$('.portfolio-modal').on('hidden.bs.modal', function (e) {
-	//	$(".navbar").removeClass("d-none");
-	//})
-
-
-
 });
 
+function showPage(pageId)
+{
+	$('.page').each(function ()
+	{
+		var page = $(this);
+		if (this.id !== pageId)
+		{
+			page.removeClass('shown');
+			document.querySelector('#mainSection').scrollTop = 0;
+			ps.update();
+		} else
+		{
+			if (page.children().length == 0) // CA MARCHE ! OMG !!
+			{
+				$.ajax({
+					method: "GET",
+					url: "http://localhost:1337/timeline",
+					success: function (data)
+					{
+						//data is the resultant html when gets created by res.render()
+						// wanna show it, add it to the dom
+						page.html(data);
+						page.addClass('shown');
+						document.querySelector('#mainSection').scrollTop = 0;
+						ps.update();
+
+					}
+				});
+			}
+			else
+			{
+				page.addClass('shown');
+				document.querySelector('#mainSection').scrollTop = 0;
+				ps.update();
+			}
+		}
+	})
+}

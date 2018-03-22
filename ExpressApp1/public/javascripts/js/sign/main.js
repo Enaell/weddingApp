@@ -1,4 +1,5 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($)
+{
 	var formModal = $('.user-modal'),
 		formLogin = formModal.find('#login'),
 		formSignup = formModal.find('#signup'),

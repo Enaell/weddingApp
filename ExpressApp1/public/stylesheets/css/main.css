@@ -52,10 +52,6 @@ Main Components
 	min-height: 100vh;
 }
 
-.block {
-	min-height: 100vh;
-	/*overflow: visible;*/
-}
 
 .half-block {
 	height: 100vh !important;
@@ -74,10 +70,10 @@ Main Components
 	transform: scale(0.75);
 }
 
-	#mainSection.shown {
-		opacity: 1;
-		transform: scale(1);
-	}
+#mainSection.shown {
+	opacity: 1;
+	transform: scale(1);
+}
 
 #welcomeSection {
 	display: inline-block;
@@ -115,10 +111,16 @@ Main Components
 	transition-duration: 2s;
 }
 
+
 #fairePartBlock {
 	display: none;
 }
 
 .page {
+	display: none;
 	/*overflow-y: visible;*/
+}
+
+.page.shown {
+	display: block;
 }
