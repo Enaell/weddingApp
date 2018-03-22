@@ -1,11 +1,124 @@
-﻿body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+﻿
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
+html {
+	font-size: 62.5%;
+}
 
+body {
+	font-size: 1.6rem;
+	font-family: "Slabo 27px", serif;
+	color: #ffffff;
+	background-color: #131d20;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+	body::before {
+		/* never visible - this is used in jQuery to check the current MQ */
+		content: 'mobile';
+		display: none;
+	}
+
+@media only screen and (min-width: 1170px) {
+	body::before {
+		/* never visible - this is used in jQuery to check the current MQ */
+		content: 'desktop';
+	}
+}
 
 a {
-    color: #00B7FF;
+	color: #e3ca76;
+	text-decoration: none;
 }
 
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.block, .half-block {
+	min-height: 100vh;
+}
+
+.block {
+	min-height: 100vh;
+	/*overflow: visible;*/
+}
+
+.half-block {
+	height: 100vh !important;
+	width: 50%;
+	position: fixed;
+	display: inline-block;
+	top: 0;
+	background-size: 100% 100%;
+	/*background-size: cover;*/
+}
+
+#mainSection {
+	height: 100vh;
+	width: 100%;
+	opacity: 0;
+	transform: scale(0.75);
+}
+
+	#mainSection.shown {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+#welcomeSection {
+	display: inline-block;
+	overflow: hidden;
+}
+
+	#welcomeSection .half-block:first-of-type {
+		background-image: url("../../images/img/img-2.jpg");
+		background-position: right;
+	}
+
+	#welcomeSection .half-block:nth-of-type(2) {
+		background-image: url("../../images/img/img-1.jpg");
+		left: 50%;
+	}
+
+	#welcomeSection .half-block:first-of-type.opened {
+		-webkit-transform: translateX(-100%);
+		-moz-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
+		-o-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+
+	#welcomeSection .half-block:nth-of-type(2).opened {
+		-webkit-transform: translateX(100%);
+		-moz-transform: translateX(100%);
+		-ms-transform: translateX(100%);
+		-o-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+
+.duration2s {
+	-webkit-transition-duration: 2s; /* Safari */
+	transition-duration: 2s;
+}
+
+#fairePartBlock {
+	display: none;
+}
+
+.page {
+	/*overflow-y: visible;*/
+}
