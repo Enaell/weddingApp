@@ -24,11 +24,12 @@ body {
 	margin: 0;
 }
 
-	body::before {
-		/* never visible - this is used in jQuery to check the current MQ */
-		content: 'mobile';
-		display: none;
-	}
+body::before 
+{
+	/* never visible - this is used in jQuery to check the current MQ */
+	content: 'mobile';
+	display: none;
+}
 
 @media only screen and (min-width: 1170px) {
 	body::before {
@@ -40,6 +41,11 @@ body {
 a {
 	color: #e3ca76;
 	text-decoration: none;
+}
+
+ol, ul
+{
+	list-style: none;
 }
 
 /* -------------------------------- 
@@ -74,6 +80,7 @@ Main Components
 	opacity: 1;
 	transform: scale(1);
 }
+
 
 #welcomeSection {
 	display: inline-block;

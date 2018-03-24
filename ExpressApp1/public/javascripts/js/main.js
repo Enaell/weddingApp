@@ -149,7 +149,8 @@ jQuery(document).ready(function ($)
 	// Collapse the navbar when page is scrolled
 	//$(window).scroll(navbarCollapse);
 
-	container.addEventListener('ps-scroll-y', function () {
+	container.addEventListener('ps-scroll-y', function () 
+	{
 		navbarCollapse();
 	});
 
