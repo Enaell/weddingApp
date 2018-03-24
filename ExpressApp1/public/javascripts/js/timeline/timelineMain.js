@@ -1,4 +1,10 @@
-jQuery(document).ready(function($){
+
+console.log('lol');
+
+jQuery(document).ready(function ($)
+{
+	alert('LOADED');
+
 	var timelineBlocks = $('.timeline-block'),
 		offset = 0.8;
 
