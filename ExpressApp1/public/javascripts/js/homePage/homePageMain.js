@@ -7,8 +7,6 @@ jQuery(document).ready(function ($)
 	var navigationItems = verticalNavigation.find('a');
 	var scrollArrow = $('.scroll-down');
 
-	//$(window).on('scroll', checkScroll);
-
 
 	//smooth scroll to the selected section
 
@@ -55,12 +53,7 @@ jQuery(document).ready(function ($)
         verticalNavigation.removeClass('open');
     });
 
-	//function checkScroll() {
-	//	if( !scrolling ) {
-	//		scrolling = true;
-	//		(!window.requestAnimationFrame) ? setTimeout(updateSections, 300) : window.requestAnimationFrame(updateSections);
-	//	}
-	//}
+
 
 	function updateSections() {
 		var halfWindowHeight = $(window).height() / 2;
@@ -74,12 +67,6 @@ jQuery(document).ready(function ($)
 			var section = $(this),
 				sectionId = section.attr('id'),
 				navigationItem = navigationItems.filter('[href^="#'+ sectionId +'"]');
-			//( (section.offset().top - halfWindowHeight < scrollTop ) && ( section.offset().top + section.height() - halfWindowHeight > scrollTop) )
-				//? navigationItem.addClass('active')
-				//: navigationItem.removeClass('active');
-
-
-			// section.offset().top > scrollTop + halfWindowHeight ==> remove active.
 
 			if (activeSectionFound || section.offset().top > halfWindowHeight)
 				navigationItem.removeClass('active');
@@ -95,24 +82,8 @@ jQuery(document).ready(function ($)
 
 	container.addEventListener('ps-scroll-y', function () 
 	{
-		//$('#homePageVerticalNav').offset().left = 0;
 		$('#homePageVerticalNav').offset({ top: 0, left: $('#homePageVerticalNav').offset.left });
 		updateSections();
 	});
-
-
-	    ////smooth scroll to the second section
-    //scrollArrow.on('click', function(event){
-    //	event.preventDefault();
-    //    smoothScroll($(this.hash));
-    //});
-
-		//function smoothScroll(target) {
- //       $('body,html').animate(
- //       	{'scrollTop':target.offset().top},
- //       	300
- //       );
-	//}
-
 
 });

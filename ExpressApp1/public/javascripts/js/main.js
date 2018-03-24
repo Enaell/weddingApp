@@ -40,8 +40,6 @@ jQuery(document).ready(function ($)
 
 			sectionBlockRevealed.removeClass('duration2s');
 
-			//$("body").css("overflow", "visible");
-
 			isAnimated = false;
 		}, 2000);
 	}
@@ -49,8 +47,6 @@ jQuery(document).ready(function ($)
 	function closeSectionBlock(sectionBlockClosed, sectionBlockHidden)
 	{
 		isAnimated = true;
-
-		//$("body").css("overflow", "hidden");
 
 		$('#mainNav').fadeOut(2000)
 
@@ -99,9 +95,6 @@ jQuery(document).ready(function ($)
 			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 			if (target.length)
 			{
-				//alert(target.offset().top);	
-				//document.querySelector('#mainSection').scrollTop += target.offset().top; 
-
 				var offset = target.offset().top;
 				var direction = 1;
 
@@ -147,8 +140,6 @@ jQuery(document).ready(function ($)
 	// Collapse now if page is not at top
 	navbarCollapse();
 	// Collapse the navbar when page is scrolled
-	//$(window).scroll(navbarCollapse);
-
 	container.addEventListener('ps-scroll-y', function () 
 	{
 		navbarCollapse();
