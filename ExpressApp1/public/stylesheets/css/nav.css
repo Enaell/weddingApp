@@ -54,8 +54,12 @@
 			transition: all .3s
 		}
 
-		#mainNav .navbar-nav .nav-item .nav-link {
-			padding: 1.1em 1em !important
+		#mainNav .navbar-nav .nav-item .nav-link
+		{
+			padding: 1.1em 1em !important;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
 		}
 
 		#mainNav.navbar-shrink {
