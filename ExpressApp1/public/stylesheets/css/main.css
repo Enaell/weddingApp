@@ -18,7 +18,7 @@ body {
 	font-size: 1.6rem;
 	font-family: "Slabo 27px", serif;
 	color: #ffffff;
-	background-color: #131d20;
+	background-color: white;
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
@@ -88,12 +88,12 @@ Main Components
 }
 
 	#welcomeSection .half-block:first-of-type {
-		background-image: url("../../images/img/img-2.jpg");
+		background-image: url("../../images/img/welcomePageLeft.png");
 		background-position: right;
 	}
 
 	#welcomeSection .half-block:nth-of-type(2) {
-		background-image: url("../../images/img/img-1.jpg");
+		background-image: url("../../images/img/welcomePageRight.png");
 		left: 50%;
 	}
 

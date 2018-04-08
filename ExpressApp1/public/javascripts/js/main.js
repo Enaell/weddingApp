@@ -1,13 +1,27 @@
-var ps = new PerfectScrollbar('#mainSection');
+//var ps = new PerfectScrollbar('#mainSection');
 
 
 jQuery(document).ready(function ($)
 {
+	var MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+	$(window).on('resize', function ()
+	{
+		MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+	});
+
+	if (MQ == 'desktop')
+	{
+		$('html').addClass('no-touch');
+		$('html').removeClass('touch');
+	}
+
+	if ($('html').width() > 800)
+		$('html').addClass('no-touch');
 
 	isAnimated = false;
 
 	// Perfect Scrollbar
-	var ps = new PerfectScrollbar('#mainSection');
+	var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 	container = document.getElementById("mainSection");
 
 	// ps.update(); when size of mainSection change, like when page is changeds
@@ -147,43 +161,42 @@ jQuery(document).ready(function ($)
 
 
 
-});
 
-function showPage(pageId)
-{
-	$('.page').each(function ()
+	function showPage(pageId)
 	{
-		var page = $(this);
-		if (this.id !== pageId)
+		$('.page').each(function ()
 		{
-			page.removeClass('shown');
-			document.querySelector('#mainSection').scrollTop = 0;
-			ps.update();
-		} else
-		{
-			if (page.children().length == 0) // CA MARCHE ! OMG !!
+			var page = $(this);
+			if (this.id !== pageId)
 			{
-				$.ajax({
-					method: "GET",
-					url: "http://localhost:1337/timeline",
-					success: function (data)
-					{
-						//data is the resultant html when gets created by res.render()
-						// wanna show it, add it to the dom
-						page.html(data);
-						page.addClass('shown');
-						document.querySelector('#mainSection').scrollTop = 0;
-						ps.update();
-
-					}
-				});
-			}
-			else
-			{
-				page.addClass('shown');
+				page.removeClass('shown');
 				document.querySelector('#mainSection').scrollTop = 0;
 				ps.update();
+			} else
+				{
+				if (page.children().length == 0) // CA MARCHE ! OMG !!
+				{
+					$.ajax({
+						method: "GET",
+						url: "http://localhost:1337/timeline",
+						success: function (data)
+						{
+							//data is the resultant html when gets created by res.render()
+							// wanna show it, add it to the dom
+							page.html(data);
+							page.addClass('shown');
+							document.querySelector('#mainSection').scrollTop = 0;
+							ps.update();
+						}
+					});
+				}
+				else
+				{
+					page.addClass('shown');
+					document.querySelector('#mainSection').scrollTop = 0;
+					ps.update();
+				}
 			}
-		}
-	})
-}
+		})
+	}
+});

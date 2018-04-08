@@ -1,6 +1,8 @@
-﻿footer {
+﻿footer
+{
 	padding: 25px 0;
-	text-align: center
+	text-align: center;
+	background-color: #BA1636;
 }
 
 footer span.copyright {
