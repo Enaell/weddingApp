@@ -1,0 +1,105 @@
+
+#google-container
+{
+	position: relative;
+	margin: auto;
+	width: 80%;
+	height: 200px;
+	background-color: #e7eaf0;
+}
+
+@media only screen and (min-width: 768px)
+{
+	#google-container
+	{
+		height: 300px;
+	}
+}
+
+@media only screen and (min-width: 1170px)
+{
+	#google-container
+	{
+		height: 600px;
+	}
+}
+
+#google-map
+{
+	position: relative;
+}
+
+	#google-map #address
+	{
+		font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+		text-align:center;
+	}
+
+
+	#google-map address
+	{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		/*padding-bottom: 1em;*/
+		color: white;
+		font-size: 40px;
+	}
+
+@media only screen and (min-width: 768px)
+{
+	#google-map address
+	{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		/*padding-bottom: 1em;*/
+		color: white;
+		font-size: 40px;
+	}
+}
+
+#zoom-in, #zoom-out
+{
+	height: 32px;
+	width: 32px;
+	cursor: pointer;
+	margin-left: 10px;
+	background-color: rgba(211, 104, 104, 0.9);
+	background-repeat: no-repeat;
+	background-size: 32px 64px;
+	background-image: url("../../../images/img/homePage/icon-controller.svg");
+}
+
+.no-touch #zoom-in:hover, .no-touch #zoom-out:hover
+{
+	background-color: #d36868;
+}
+
+@media only screen and (min-width: 768px)
+{
+	#zoom-in, #zoom-out
+	{
+		margin-left: 50px;
+	}
+}
+
+#zoom-in
+{
+	background-position: 50% 0;
+	margin-top: 10px;
+	margin-bottom: 1px;
+}
+
+@media only screen and (min-width: 768px)
+{
+	#zoom-in
+	{
+		margin-top: 50px;
+	}
+}
+
+#zoom-out
+{
+	background-position: 50% -32px;
+}

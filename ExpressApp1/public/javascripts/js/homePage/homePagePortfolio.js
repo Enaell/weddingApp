@@ -21,7 +21,7 @@ function showProjectPreview(project)
 		{
 			project.addClass('slides-in');
 			showProjectPreview(project.next());
-		}, 50);
+		}, 0);
 	}
 }
 

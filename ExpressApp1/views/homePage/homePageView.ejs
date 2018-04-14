@@ -1,6 +1,10 @@
-﻿<link href="stylesheets/css/homePage/agency.css" rel="stylesheet">
+﻿<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+<link href="stylesheets/css/homePage/agency.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/verticalNavbar.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/homePagePortfolio.css" rel="stylesheet">
+<link href="stylesheets/css/homePage/homePageMap.css" rel="stylesheet">
+
 
 <!--Navigation-->
 <div class="vertical-nav" id="homePageVerticalNav">
@@ -17,9 +21,9 @@
 	<section id="intro">
 		<div id="page-top">
 			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To Our Studio!</div>
-				<div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+				<div class="intro-lead-in">Aurélien & Lulu</div>
+				<div class="intro-heading ">Nous nous Marrions</div>
+				<a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Tell Me More</a>
 			</div>
 		</div>
 		<div class="curve">
@@ -47,12 +51,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">Un Heureux Couple</h2>
+				<h2 class="section-heading ">Un Heureux Couple</h2>
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
-		<div class="row text-center">
-			<div class="col-sm-5" id="team">
+		<div class="row text-center teamRow">
+			<div class="col-sm-5 team">
 				<img class="img-responsive" src="images/img/homePage/Auerlien1.png" />
 				<h4 class="service-heading">Aurélien Martin</h4>
 				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -62,7 +66,7 @@
 				<h4 class="service-heading">Responsive Design</h4>
 				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 			</div>
-			<div class="col-sm-5" id="team">
+			<div class="col-sm-5 team">
 				<img class="img-responsive" src="images/img/homePage/Lulu1.JPG" />
 				<h4 class="service-heading">王璐露</h4>
 				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -70,8 +74,8 @@
 		</div>
 		<div class="row" id="ourStory" style="padding-top: 50px;">
 			<div class="col-lg-12 text-center">
-				<h2 class="subsection-heading text-uppercase">Notre Histoire</h2>
-				<h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+				<h2 class="subsection-heading ">Notre Histoire</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 			<%
 			for (var i = 0; i < ourStoryBoxes.length; ++i)
@@ -244,12 +248,24 @@
 	</div>
 
 </section>
+
+<section class="bg-pastelRed" id="google-map">
+	<address>
+		<p id="address">
+			Lieu du Marriage : 86-90 Paul Street, London, EC2A 4NE
+		</p>
+	</address>
+	<div id="google-container"></div>
+	<div id="zoom-in"></div>
+	<div id="zoom-out"></div>
+</section>
+
 <!-- About -->
 <section id="about">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">le Marriage</h2>
+				<h2 class="section-heading ">le Marriage</h2>
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
@@ -327,36 +343,62 @@
 		</div>
 	</div>
 </section>
-<section id="ourProject">
-	<div class="bg-pastelRed">
-		<div class="row container" id="projects">
+<!-- Our Projects-->>
+<section id="ourProject" class="bg-pastelRed">
+	<div id="projects">
+		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="subsection-heading text-uppercase">Nos Projets</h2>
+				<h2 class="subsection-heading ">Nos Projets</h2>
 				<h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
-		<div class="row container">
+		<div class="row">
 			<%
 			for (var i = 0; i < introBoxes.length; ++i)
 			{
 			%>
 			<div class="col-sm-4">
-				<div class="intro-box">
+				<!--<div class="intro-box">
 					<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
 					<h4><%= introBoxes[i].title %></h4>
 					<p><%= introBoxes[i].text %></p>
+				</div>-->
+
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<!-- front content -->
+							<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+							<h4><%= introBoxes[i].title %></h4>
+							<p><%= introBoxes[i].text %></p>
+
+
+						</div>
+						<div class="back">
+							<!-- back content -->
+							<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+							<h4><%= introBoxes[i].title %></h4>
+							<p><%= introBoxes[i].text %></p>
+
+						</div>
+					</div>
 				</div>
+
+
 			</div>
 			<%}%>
 		</div>
+
+
 	</div>
 
 </section>
+<!-- News -->
 <section id="news">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">les Dernières Nouvelles</h2>
+				<h2 class="section-heading ">les Dernières Nouvelles</h2>
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
@@ -383,8 +425,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">Contact Us</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				<h2 class="section-heading ">Contact Us</h2>
+				<h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
 		<div class="row">
@@ -414,7 +456,7 @@
 						<div class="clearfix"></div>
 						<div class="col-lg-12 text-center">
 							<div id="success"></div>
-							<button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+							<button id="sendMessageButton" class="btn btn-primary btn-xl " type="submit">Send Message</button>
 						</div>
 					</div>
 				</form>
@@ -422,5 +464,9 @@
 		</div>
 	</div>
 </section>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB475-TngUlJcYR1YzHQUaIBjAyCQbpkj4"></script>
 <script src="javascripts/js/homePage/homePageMain.js"></script>
 <script src="javascripts/js/homePage/homePagePortfolio.js"></script>
+<script src="javascripts/js/homePage/homePageMap.js"></script>

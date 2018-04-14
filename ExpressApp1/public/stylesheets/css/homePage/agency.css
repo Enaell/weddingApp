@@ -1,4 +1,5 @@
-body #homePage{
+body #homePage
+{
 	overflow-x: hidden;
 	font-family: 'Roboto Slab','Helvetica Neue',Helvetica,Arial,sans-serif
 }
@@ -23,10 +24,12 @@ body #homePage{
 	color: #fed136 !important
 }
 
-#homePage h1, #homePage h2, #homePage h3, #homePage h4, #homePage h5, #homePage h6
+#homePage .section-heading
 {
-	font-weight: 700;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	color: #d0636c;
+	font-weight: 900;
+	font-size: 50px;
 }
 
 #homePage section
@@ -34,34 +37,34 @@ body #homePage{
 	padding: 100px 0;
 }
 
-#homePage section h2.section-heading
-{
-	font-size: 40px;
-	margin-top: 0;
-	margin-bottom: 15px;
-	color: #d0636c;
-}
+	#homePage section h2.section-heading
+	{
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
 
-#homePage section h2.subsection-heading
-{
-	padding-top: 50px;
-	font-size: 30px;
-	margin-top: 0;
-	margin-bottom: 15px;
-	color: #D13844;
-}
+	#homePage section h2.subsection-heading
+	{
+		font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+		color: #d0636c;
+		font-weight: 900;
+		font-size: 50px;
+		padding-top: 40px;
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
 
-#homePage section h3.section-subheading
-{
-	font-size: 16px;
-	font-weight: 400;
-	font-style: italic;
-	margin-bottom: 75px;
-	text-transform: none;
-	font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
-}
+	#homePage section h3.section-subheading
+	{
+		font-size: 16px;
+		font-weight: 400;
+		font-style: italic;
+		margin-bottom: 75px;
+		text-transform: none;
+		font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
+	}
 
-@media (min-width:768px) 
+@media (min-width:768px)
 {
 	#homePage section
 	{
@@ -88,17 +91,17 @@ body #homePage{
 	color: #fff
 }
 
-#homePage .btn-primary:active, #homePage .btn-primary:focus, #homePage .btn-primary:hover
-{
-	background-color: #D13844 !important;
-	border-color: #D13844 !important;
-	color: #fff
-}
+	#homePage .btn-primary:active, #homePage .btn-primary:focus, #homePage .btn-primary:hover
+	{
+		background-color: #D13844 !important;
+		border-color: #D13844 !important;
+		color: #fff
+	}
 
-#homePage .btn-primary:active, #homePage .btn-primary:focus
-{
-	box-shadow: 0 0 0 .2rem rgba(254,209,55,.5) !important
-}
+	#homePage .btn-primary:active, #homePage .btn-primary:focus
+	{
+		box-shadow: 0 0 0 .2rem rgba(254,209,55,.5) !important
+	}
 
 #homePage ::-moz-selection
 {
@@ -123,728 +126,42 @@ body #homePage{
 }
 
 
-#homePage header.masthead
-{
-	text-align: center;
-	color: #fff;
-	background-image: url(../../../images/img/homePage/header-background.jpg);
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position:top center;
-	/*margin-top: 80px;*/
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover
-}
+/*  -------------------------
+	Home Page BG Pastel Begin
+	-------------------------  */
 
-#homePage header.masthead .intro-text
-{
-	padding-top: 150px;
-	padding-bottom: 100px
-}
-
-#homePage header.masthead .intro-text .intro-lead-in
-{
-	font-size: 22px;
-	font-style: italic;
-	line-height: 22px;
-	margin-bottom: 25px;
-	font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage header.masthead .intro-text .intro-heading
-{
-	font-size: 50px;
-	font-weight: 700;
-	line-height: 50px;
-	margin-bottom: 25px;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-@media (min-width:768px) 
-{
-	#homePage header.masthead #intro
-	{
-		min-height: calc(100vh - 100px);
-		position: relative;
-	}
-
-	#homePage header.masthead .intro-text
-	{
-		padding-top: 10%;
-		/*padding-bottom: 200px*/
-	}
-
-	#homePage header.masthead .intro-text .intro-lead-in
-	{
-		font-size: 40px;
-		font-style: italic;
-		line-height: 40px;
-		margin-bottom: 25px;
-		font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
-	}
-
-	#homePage header.masthead .intro-text .intro-heading
-	{
-		font-size: 75px;
-		font-weight: 700;
-		line-height: 75px;
-		margin-bottom: 50px;
-		font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-	}
-}
-
-#homePage .service-heading
-{
-	margin: 15px 0;
-	text-transform: none
-}
-
-#homePage #portfolio
-{
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-#homePage #portfolio .portfolio-item
-{
-	right: 0;
-	margin: 0 0 15px
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link
-{
-	position: relative;
-	display: block;
-	max-width: 400px;
-	margin: 0 auto;
-	cursor: pointer
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover
-{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	-webkit-transition: all ease .5s;
-	-moz-transition: all ease .5s;
-	transition: all ease .5s;
-	opacity: 0;
-	background: rgba(254,209,54,.9)
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover
-{
-	opacity: 1
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content
-{
-	font-size: 20px;
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	height: 20px;
-	margin-top: -12px;
-	text-align: center;
-	color: #fff
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i
-{
-	margin-top: -12px
-}
-
-#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3, #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4
-{
-	margin: 0
-}
-
-#homePage #portfolio .portfolio-item .portfolio-caption
-{
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 25px;
-	text-align: center;
-	background-color: #fff
-}
-
-#homePage #portfolio .portfolio-item .portfolio-caption h4
-{
-	margin: 0;
-	text-transform: none
-}
-
-#homePage #portfolio .portfolio-item .portfolio-caption p
-{
-	font-size: 16px;
-	font-style: italic;
-	margin: 0;
-	font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage #portfolio *
-{
-	z-index: 2
-}
-
-@media (min-width:767px) 
-{
-	#homePage #portfolio .portfolio-item
-	{
-		margin: 0 0 30px
-	}
-}
-
-#homePage .portfolio-modal
-{
-	padding-right: 0 !important
-}
-
-#homePage .portfolio-modal .modal-dialog
-{
-	margin: 1rem;
-	max-width: 100vw
-}
-
-#homePage .portfolio-modal .modal-content
-{
-	padding: 100px 0;
-	text-align: center
-}
-
-#homePage .portfolio-modal .modal-content h2
-{
-	font-size: 3em;
-	margin-bottom: 15px
-}
-
-#homePage .portfolio-modal .modal-content p
-{
-	margin-bottom: 30px
-}
-
-#homePage .portfolio-modal .modal-content p.item-intro
-{
-	font-size: 16px;
-	font-style: italic;
-	margin: 20px 0 30px;
-	font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage .portfolio-modal .modal-content ul.list-inline
-{
-	margin-top: 0;
-	margin-bottom: 30px
-}
-
-#homePage .portfolio-modal .modal-content img
-{
-	margin-bottom: 30px
-}
-
-#homePage .portfolio-modal .modal-content button
-{
-	cursor: pointer
-}
-
-.portfolio-modal .close-modal {
-	position: absolute;
-	top: 25px;
-	right: 25px;
-	width: 75px;
-	height: 75px;
-	cursor: pointer;
-	background-color: transparent
-}
-
-#homePage .portfolio-modal .close-modal:hover
-{
-	opacity: .3
-}
-
-#homePage .portfolio-modal .close-modal .lr
-{
-	z-index: 1051;
-	width: 1px;
-	height: 75px;
-	margin-left: 35px;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	background-color: #212529
-}
-
-#homePage .portfolio-modal .close-modal .lr .rl
-{
-	z-index: 1052;
-	width: 1px;
-	height: 75px;
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
-	background-color: #212529
-}
-
-#homePage .timeline
-{
-	position: relative;
-	padding: 0;
-	list-style: none
-}
-
-#homePage .timeline:before
-{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 40px;
-	width: 2px;
-	margin-left: -1.5px;
-	content: '';
-	background-color: #e9ecef
-}
-
-#homePage .timeline > li
-{
-	position: relative;
-	min-height: 50px;
-	margin-bottom: 50px
-}
-
-#homePage .timeline > li:after, #homePage .timeline > li:before
-{
-	display: table;
-	content: ' '
-}
-
-#homePage .timeline > li:after
-{
-clear: both
-}
-
-#homePage .timeline > li .timeline-panel
-{
-	position: relative;
-	float: right;
-	width: 100%;
-	padding: 0 20px 0 100px;
-	text-align: left
-}
-
-#homePage .timeline > li .timeline-panel:before
-{
-	right: auto;
-	left: -15px;
-	border-right-width: 15px;
-	border-left-width: 0
-}
-
-#homePage .timeline > li .timeline-panel:after
-{
-	right: auto;
-	left: -14px;
-	border-right-width: 14px;
-	border-left-width: 0
-}
-
-#homePage .timeline > li .timeline-image
-{
-	position: absolute;
-	z-index: 100;
-	left: 0;
-	width: 80px;
-	height: 80px;
-	margin-left: 0;
-	text-align: center;
-	color: #fff;
-	border: 7px solid #e9ecef;
-	border-radius: 100%;
-	background-color: #fed136
-}
-
-#homePage .timeline > li .timeline-image h4
-{
-	font-size: 10px;
-	line-height: 14px;
-	margin-top: 12px
-}
-
-#homePage .timeline > li.timeline-inverted > .timeline-panel
-{
-	float: right;
-	padding: 0 20px 0 100px;
-	text-align: left
-}
-
-#homePage .timeline > li.timeline-inverted > .timeline-panel:before
-{
-	right: auto;
-	left: -15px;
-	border-right-width: 15px;
-	border-left-width: 0
-}
-
-#homePage .timeline > li.timeline-inverted > .timeline-panel:after
-{
-	right: auto;
-	left: -14px;
-	border-right-width: 14px;
-	border-left-width: 0
-}
-
-#homePage .timeline > li:last-child
-{
-	margin-bottom: 0
-}
-
-#homePage .timeline .timeline-heading h4
-{
-	margin-top: 0;
-	color: inherit
-}
-
-#homePage .timeline .timeline-heading h4.subheading
-{
-	text-transform: none
-}
-
-#homePage .timeline .timeline-body > p, #homePage .timeline .timeline-body > ul
-{
-	margin-bottom: 0
-}
-
-@media (min-width:768px) 
-{
-	#homePage .timeline:before
-	{
-		left: 50%
-	}
-
-	#homePage .timeline > li
-	{
-		min-height: 100px;
-		margin-bottom: 100px
-	}
-
-	#homePage .timeline > li .timeline-panel
-	{
-		float: left;
-		width: 41%;
-		padding: 0 20px 20px 30px;
-		text-align: right
-	}
-
-	#homePage .timeline > li .timeline-image
-	{
-		left: 50%;
-		width: 100px;
-		height: 100px;
-		margin-left: -50px
-	}
-
-	#homePage .timeline > li .timeline-image h4
-	{
-		font-size: 13px;
-		line-height: 18px;
-		margin-top: 16px
-	}
-
-	#homePage .timeline > li.timeline-inverted > .timeline-panel
-	{
-		float: right;
-		padding: 0 30px 20px 20px;
-		text-align: left
-	}
-}
-
-@media (min-width:992px) 
-{
-	#homePage .timeline > li
-	{
-		min-height: 150px
-	}
-
-	#homePage .timeline > li .timeline-panel
-	{
-		padding: 0 20px 20px
-	}
-
-	#homePage .timeline > li .timeline-image
-	{
-		width: 150px;
-		height: 150px;
-		margin-left: -75px
-	}
-
-	#homePage .timeline > li .timeline-image h4
-	{
-		font-size: 18px;
-		line-height: 26px;
-		margin-top: 30px
-	}
-
-	#homePage .timeline > li.timeline-inverted > .timeline-panel
-	{
-		padding: 0 20px 20px
-	}
-}
-
-@media (min-width:1200px) 
-{
-	#homePage .timeline > li
-	{
-		min-height: 170px
-	}
-
-	#homePage .timeline > li .timeline-panel
-	{
-		padding: 0 20px 20px 100px
-	}
-			#homePage .timeline > li .timeline-image
-	{
-		width: 170px;
-		height: 170px;
-		margin-left: -85px
-	}
-
-	#homePage .timeline > li .timeline-image h4
-	{
-		margin-top: 40px
-	}
-
-	#homePage .timeline > li.timeline-inverted > .timeline-panel
-	{
-		padding: 0 100px 20px 20px
-	}
-}
-
-#homePage .team-member
-{
-	margin-bottom: 50px;
-	text-align: center
-}
-
-#homePage .team-member img
-{
-	width: 225px;
-	height: 225px;
-	border: 7px solid #fff
-}
-
-#homePage .team-member h4
-{
-	margin-top: 25px;
-	margin-bottom: 0;
-	text-transform: none
-}
-
-#homePage .team-member p
-{
-	margin-top: 0
-}
-
-#homePage section#contact
-{
-	background-color: #BA1636;
-	background-image: url(../../../images/img//map-image.png);
-	background-repeat: no-repeat;
-	background-position: center
-}
-
-#homePage section#contact .section-heading
-{
-	color: #fff
-}
-
-#homePage section#contact .form-group
-{
-	margin-bottom: 25px
-}
-
-#homePage section#contact .form-group input, #homePage section#contact .form-group textarea
-{
-	padding: 20px
-}
-
-#homePage section#contact .form-group input.form-control
-{
-	height: auto
-}
-
-#homePage section#contact .form-group textarea.form-control
-	{
-		height: 248px
-	}
-
-#homePage section#contact .form-control:focus
-{
-	border-color: #fed136;
-	box-shadow: none
-}
-
-#homePage section#contact ::-webkit-input-placeholder
-{
-	font-weight: 700;
-	color: #ced4da;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage section#contact :-moz-placeholder
-{
-	font-weight: 700;
-	color: #ced4da;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage section#contact ::-moz-placeholder
-{
-	font-weight: 700;
-	color: #ced4da;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage section#contact :-ms-input-placeholder
-{
-	font-weight: 700;
-	color: #ced4da;
-	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
-}
-
-#homePage ul.social-buttons
-{
-	margin-bottom: 0
-}
-
-#homePage ul.social-buttons li a
-{
-	font-size: 20px;
-	line-height: 40px;
-	display: block;
-	width: 40px;
-	height: 40px;
-	-webkit-transition: all .3s;
-	-moz-transition: all .3s;
-	transition: all .3s;
-	color: #fff;
-	border-radius: 100%;
-	outline: 0;
-	background-color: #212529
-}
-
-#homePage ul.social-buttons li a:active, #homePage ul.social-buttons li a:focus, #homePage ul.social-buttons li a:hover
-{
-	background-color: #fed136
-}
-
-#homePage .curve
-{
-	background-image: url(../../../images/img/homePage/curve.png);
-	background-size: 100% 100%;
-	position: absolute;
-	bottom: 0;
-	background-repeat: no-repeat;
-}
-
-#homePage img.img-responsive
-{
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
-#homePage #intro-Boxes
-{
-	position: absolute;
-	/* bottom: 0; */
-	left: 0;
-	right: 0;
-	margin: auto;
-	margin: -150px auto 0;
-}
-
-#homePage .intro-box
-{
-	background-color: white;
-	width: 80%;
-	color: grey;
-	min-height: 225px;
-	margin: auto;
-	padding-top: 35px;
-	padding-bottom: 25px;
-	-moz-box-shadow: 0px 0px 15px 0px #9b9b9b;
-	-webkit-box-shadow: 0px 0px 15px 0px #9b9b9b;
-	-o-box-shadow: 0px 0px 15px 0px #9b9b9b;
-	box-shadow: 0px 0px 15px 0px #9b9b9b;
-}
-
-#homePage .intro-box img
-{
-	width: 50px;
-	margin-bottom: 25px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#homePage .intro-box h4
-{
-	font-size:medium; 
-}
 
 #homePage .bg-pastelRed
 {
 	background-color: #d0636c;
 	color: white !important;
+	padding-top: 50px;
 }
 
-#homePage .bg-pastelRed h2.section-heading
-{
-	color: white !important;
-}
+	#homePage .bg-pastelRed h2.section-heading
+	{
+		color: white !important;
+	}
 
-#homePage .bg-pastelRed section-subheading
-{
-	color: white !important;
-}
+	#homePage .bg-pastelRed section-subheading
+	{
+		color: white !important;
+	}
 
-#homePage .bg-pastelRed .subsection-heading
-{
-	color: white !important;
-}
+	#homePage .bg-pastelRed .subsection-heading
+	{
+		color: white !important;
+	}
+
+/*  -------------------------
+	Home Page BG Pastel End
+	-------------------------  */
 
 
-#homePage #services
-{
-	padding-top: 200px;
-}
+/*  -------------------------
+	Home Page Timer Begin
+	-------------------------  */
 
-#homePage #services #team
-{
-	padding-top: 30px;
-}
-
-#homePage #services #team img
-{
-	border-radius: 100%;
-	border-top-left-radius: 100%;
-	border-top-right-radius: 100%;
-	border-bottom-right-radius: 100%;
-	border-bottom-left-radius: 100%;
-	display: inline;
-	width: 50%;
-}
-
-#homePage .service-heading
-{
-	color: #d0636c;
-}
-
-#homePage rotate words-wrapper
-{
-	display: inline-block;
-	perspective: 300px;
-}
 
 #homePage .timer
 {
@@ -854,7 +171,7 @@ clear: both
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom : 50px;
+	margin-bottom: 50px;
 	left: 0;
 	background-color: #BA1636;
 	padding-top: 25px;
@@ -863,42 +180,49 @@ clear: both
 	color: white
 }
 
-#homePage .rotate
-{
-	position: relative;
-	display: inline-block;
-}
+	#homePage .timer .rotate
+	{
+		position: relative;
+		display: inline-block;
+	}
 
-#homePage .rotate span
-{
-	position: relative;
-}
+		#homePage .timer .rotate span
+		{
+			position: relative;
+		}
 
-#homePage .rotate b
-{
-	opacity: 0;
-	transform-origin: 50% 100%;
-	transform: rotateX(180deg);
-	display: inline-block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 80px;
-}
+		#homePage .timer .rotate b
+		{
+			opacity: 0;
+			transform-origin: 50% 100%;
+			transform: rotateX(180deg);
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 80px;
+		}
 
-#homePage .rotate b.is-visible
-{
-	position: relative;
-	opacity: 1;
-	transform: rotateX(0deg);
-	animation: rotate-in 1.2s;
-}
+			#homePage .timer .rotate b.is-visible
+			{
+				position: relative;
+				opacity: 1;
+				transform: rotateX(0deg);
+				animation: rotate-in 1.2s;
+			}
 
-#homePage .rotate b.is-hidden
-{
-	transform: rotateX(180deg);
-	animation: rotate-out 1.2s;
-}
+			#homePage .timer .rotate b.is-hidden
+			{
+				transform: rotateX(180deg);
+				animation: rotate-out 1.2s;
+			}
+
+	#homePage .timer rotate words-wrapper
+	{
+		display: inline-block;
+		perspective: 300px;
+	}
+
 
 @keyframes rotate-in
 {
@@ -917,7 +241,7 @@ clear: both
 	65%
 	{
 		opacity: 0;
-		display:inline-block;
+		display: inline-block;
 	}
 
 	100%
@@ -954,40 +278,761 @@ clear: both
 	}
 }
 
-#homePage #projects
+
+
+/*  -------------------------
+	Home Page Timer End
+	-------------------------  */
+
+
+/*  -------------------------
+	Home Page Header.Masthead Begin
+	-------------------------  */
+
+
+#homePage header.masthead
+{
+	text-align: center;
+	color: #fff;
+	background-image: url(../../../images/img/homePage/header-background.jpg);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: top center;
+	/*margin-top: 80px;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover
+}
+
+	#homePage header.masthead .intro-text
+	{
+		padding-top: 150px;
+		padding-bottom: 100px
+	}
+
+		#homePage header.masthead .intro-text .intro-lead-in
+		{
+			font-size: 22px;
+			font-style: italic;
+			line-height: 22px;
+			margin-bottom: 25px;
+			font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
+		}
+
+		#homePage header.masthead .intro-text .intro-heading
+		{
+			font-size: 80px;
+			font-weight: 700;
+			line-height: 50px;
+			margin-bottom: 25px;
+			font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+		}
+
+	#homePage header.masthead .curve
+	{
+		background-image: url(../../../images/img/homePage/curve.png);
+		background-size: 100% 100%;
+		position: absolute;
+		bottom: 0;
+		background-repeat: no-repeat;
+	}
+
+	#homePage header.masthead #intro-Boxes
+	{
+		position: absolute;
+		/* bottom: 0; */
+		left: 0;
+		right: 0;
+		margin: auto;
+		margin: -150px auto 0;
+	}
+
+	#homePage header.masthead .intro-box
+	{
+		background-color: white;
+		width: 80%;
+		color: grey;
+		min-height: 225px;
+		margin: auto;
+		padding-top: 35px;
+		padding-bottom: 25px;
+		-moz-box-shadow: 0px 0px 15px 0px #9b9b9b;
+		-webkit-box-shadow: 0px 0px 15px 0px #9b9b9b;
+		-o-box-shadow: 0px 0px 15px 0px #9b9b9b;
+		box-shadow: 0px 0px 15px 0px #9b9b9b;
+	}
+
+		#homePage header.masthead .intro-box img
+		{
+			width: 50px;
+			margin-bottom: 25px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#homePage header.masthead .intro-box h4
+		{
+			font-size: medium;
+		}
+
+
+@media (min-width:768px)
+{
+	#homePage header.masthead #intro
+	{
+		min-height: calc(100vh - 100px);
+		position: relative;
+	}
+
+	#homePage header.masthead .intro-text
+	{
+		padding-top: 10%;
+		/*padding-bottom: 200px*/
+	}
+
+		#homePage header.masthead .intro-text .intro-lead-in
+		{
+			font-size: 40px;
+			font-style: italic;
+			line-height: 40px;
+			margin-bottom: 25px;
+			font-weight: bold;
+			font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
+		}
+
+		#homePage header.masthead .intro-text .intro-heading
+		{
+			font-size: 100px;
+			font-weight: 700;
+			line-height: 75px;
+			margin-bottom: 50px;
+			font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+			font-weight: bold;
+		}
+}
+
+
+
+/*  -------------------------
+	Home Page Header.Masthead End
+	-------------------------  */
+
+
+/*  -------------------------
+	Home Page Service Begin
+	-------------------------  */
+
+#homePage #services
+{
+	padding-top: 200px;
+}
+
+	#homePage #services #teamRow
+	{
+		padding-top: 30px;
+	}
+
+	#homePage #services .team img
+	{
+		border-radius: 100%;
+		border-top-left-radius: 100%;
+		border-top-right-radius: 100%;
+		border-bottom-right-radius: 100%;
+		border-bottom-left-radius: 100%;
+		display: inline;
+		width: 50%;
+	}
+
+	#homePage #services .service-heading
+	{
+		margin: 15px 0;
+		text-transform: none
+	}
+
+	#homePage #services .story-box
+	{
+		padding-bottom: 40px;
+		padding-right: 20px;
+	}
+
+		#homePage #services .story-box h2
+		{
+			color: black;
+			padding-left: 80px;
+			padding-top: 10px;
+			padding-bottom: 30px;
+			font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+			font-size: 35px;
+			font-weight:bold;
+		}
+
+		#homePage #services .story-box p
+		{
+			color: grey;
+		}
+
+		#homePage #services .story-box img
+		{
+			float: left;
+		}
+
+	#homePage #services #ourStory
+	{
+		border-style: solid;
+		border-width: 2px 0px 2px 0px;
+		border-color: #d48f8f;
+		margin-top: 80px;
+		padding-bottom: 40px;
+	}
+
+
+/*  -------------------------
+	Home Page Service End
+	-------------------------  */
+
+/*  -------------------------
+	Home Page Portfolio Begin
+	-------------------------  */
+
+#homePage #portfolio
+{
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+	#homePage #portfolio .portfolio-item
+	{
+		right: 0;
+		margin: 0 0 15px
+	}
+
+		#homePage #portfolio .portfolio-item .portfolio-link
+		{
+			position: relative;
+			display: block;
+			max-width: 400px;
+			margin: 0 auto;
+			cursor: pointer
+		}
+
+			#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover
+			{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				-webkit-transition: all ease .5s;
+				-moz-transition: all ease .5s;
+				transition: all ease .5s;
+				opacity: 0;
+				background: rgba(254,209,54,.9)
+			}
+
+				#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover
+				{
+					opacity: 1
+				}
+
+				#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content
+				{
+					font-size: 20px;
+					position: absolute;
+					top: 50%;
+					width: 100%;
+					height: 20px;
+					margin-top: -12px;
+					text-align: center;
+					color: #fff
+				}
+
+					#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i
+					{
+						margin-top: -12px
+					}
+
+					#homePage #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3, #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4
+					{
+						margin: 0
+					}
+
+		#homePage #portfolio .portfolio-item .portfolio-caption
+		{
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 25px;
+			text-align: center;
+			background-color: #fff
+		}
+
+			#homePage #portfolio .portfolio-item .portfolio-caption h4
+			{
+				margin: 0;
+				text-transform: none
+			}
+
+			#homePage #portfolio .portfolio-item .portfolio-caption p
+			{
+				font-size: 16px;
+				font-style: italic;
+				margin: 0;
+				font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
+			}
+
+	#homePage #portfolio *
+	{
+		z-index: 2
+	}
+
+@media (min-width:767px)
+{
+	#homePage #portfolio .portfolio-item
+	{
+		margin: 0 0 30px
+	}
+}
+
+
+/*  -------------------------
+	Home Page Portfolio End
+	-------------------------  */
+
+
+/*  -------------------------
+	Home Page TimeLine Begin
+	-------------------------  */
+
+
+#homePage .timeline
+{
+	position: relative;
+	padding: 0;
+	list-style: none
+}
+
+	#homePage .timeline:before
+	{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 40px;
+		width: 2px;
+		margin-left: -1.5px;
+		content: '';
+		background-color: #e9ecef
+	}
+
+	#homePage .timeline > li
+	{
+		position: relative;
+		min-height: 50px;
+		margin-bottom: 50px
+	}
+
+		#homePage .timeline > li:after, #homePage .timeline > li:before
+		{
+			display: table;
+			content: ' '
+		}
+
+		#homePage .timeline > li:after
+		{
+			clear: both
+		}
+
+		#homePage .timeline > li .timeline-panel
+		{
+			position: relative;
+			float: right;
+			width: 100%;
+			padding: 0 20px 0 100px;
+			text-align: left
+		}
+
+			#homePage .timeline > li .timeline-panel:before
+			{
+				right: auto;
+				left: -15px;
+				border-right-width: 15px;
+				border-left-width: 0
+			}
+
+			#homePage .timeline > li .timeline-panel:after
+			{
+				right: auto;
+				left: -14px;
+				border-right-width: 14px;
+				border-left-width: 0
+			}
+
+		#homePage .timeline > li .timeline-image
+		{
+			position: absolute;
+			z-index: 100;
+			left: 0;
+			width: 80px;
+			height: 80px;
+			margin-left: 0;
+			text-align: center;
+			color: #fff;
+			border: 7px solid #e9ecef;
+			border-radius: 100%;
+			background-color: #fed136
+		}
+
+			#homePage .timeline > li .timeline-image h4
+			{
+				font-size: 10px;
+				line-height: 14px;
+				margin-top: 12px
+			}
+
+		#homePage .timeline > li.timeline-inverted > .timeline-panel
+		{
+			float: right;
+			padding: 0 20px 0 100px;
+			text-align: left
+		}
+
+			#homePage .timeline > li.timeline-inverted > .timeline-panel:before
+			{
+				right: auto;
+				left: -15px;
+				border-right-width: 15px;
+				border-left-width: 0
+			}
+
+			#homePage .timeline > li.timeline-inverted > .timeline-panel:after
+			{
+				right: auto;
+				left: -14px;
+				border-right-width: 14px;
+				border-left-width: 0
+			}
+
+		#homePage .timeline > li:last-child
+		{
+			margin-bottom: 0
+		}
+
+	#homePage .timeline .timeline-heading h4
+	{
+		margin-top: 0;
+		color: inherit
+	}
+
+		#homePage .timeline .timeline-heading h4.subheading
+		{
+			text-transform: none
+		}
+
+	#homePage .timeline .timeline-body > p, #homePage .timeline .timeline-body > ul
+	{
+		margin-bottom: 0
+	}
+
+@media (min-width:768px)
+{
+	#homePage .timeline:before
+	{
+		left: 50%
+	}
+
+	#homePage .timeline > li
+	{
+		min-height: 100px;
+		margin-bottom: 100px
+	}
+
+		#homePage .timeline > li .timeline-panel
+		{
+			float: left;
+			width: 41%;
+			padding: 0 20px 20px 30px;
+			text-align: right
+		}
+
+		#homePage .timeline > li .timeline-image
+		{
+			left: 50%;
+			width: 100px;
+			height: 100px;
+			margin-left: -50px
+		}
+
+			#homePage .timeline > li .timeline-image h4
+			{
+				font-size: 13px;
+				line-height: 18px;
+				margin-top: 16px
+			}
+
+		#homePage .timeline > li.timeline-inverted > .timeline-panel
+		{
+			float: right;
+			padding: 0 30px 20px 20px;
+			text-align: left
+		}
+}
+
+@media (min-width:992px)
+{
+	#homePage .timeline > li
+	{
+		min-height: 150px
+	}
+
+		#homePage .timeline > li .timeline-panel
+		{
+			padding: 0 20px 20px
+		}
+
+		#homePage .timeline > li .timeline-image
+		{
+			width: 150px;
+			height: 150px;
+			margin-left: -75px
+		}
+
+			#homePage .timeline > li .timeline-image h4
+			{
+				font-size: 18px;
+				line-height: 26px;
+				margin-top: 30px
+			}
+
+		#homePage .timeline > li.timeline-inverted > .timeline-panel
+		{
+			padding: 0 20px 20px
+		}
+}
+
+@media (min-width:1200px)
+{
+	#homePage .timeline > li
+	{
+		min-height: 170px
+	}
+
+		#homePage .timeline > li .timeline-panel
+		{
+			padding: 0 20px 20px 100px
+		}
+
+		#homePage .timeline > li .timeline-image
+		{
+			width: 170px;
+			height: 170px;
+			margin-left: -85px
+		}
+
+			#homePage .timeline > li .timeline-image h4
+			{
+				margin-top: 40px
+			}
+
+		#homePage .timeline > li.timeline-inverted > .timeline-panel
+		{
+			padding: 0 100px 20px 20px
+		}
+}
+
+/*  -------------------------
+	Home Page TimeLine End
+	-------------------------  */
+
+
+/*  -------------------------
+	Home Page Project Begin
+	-------------------------  */
+
+
+
+#homePage #ourProject #projects
 {
 	margin: auto;
 	left: 0;
+	max-width: 1400px;
 }
 
-#homePage .story-box
+
+/* entire container, keeps perspective */
+.flip-container
 {
-	padding-bottom: 40px;
-	padding-right: 20px;
+	perspective: 1000px;
+	width: 90%;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper
+	{
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back
+{
+	min-height: 300px;
 }
 
-#homePage .story-box h2
+/* flip speed goes here */
+.flipper
 {
-	color: black;
-	padding-left: 80px;
-	padding-top: 10px;
-	padding-bottom: 30px;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+	min-height: 300px;
 }
 
-#homePage .story-box p
+/* hide back of pane during swap */
+.front, .back
 {
-	color: grey;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 
-#homePage .story-box img
+/* front pane, placed above back */
+.front
 {
-	float: left;
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background-color: blue;
 }
 
-#homePage #ourStory
+/* back, initially hidden pane */
+.back
 {
-	border-style: solid;
-	border-width: 2px 0px 2px 0px;
-	border-color: #d48f8f;
-	margin-top: 80px;
+	transform: rotateY(180deg);
+	background-color: green;
 }
+
+
+/*  -------------------------
+	Home Page Project End
+	-------------------------  */
+
+
+
+/*  -------------------------
+	Home Page Contact Begin
+	-------------------------  */
+
+#homePage section#contact
+{
+	background-color: #BA1636;
+	background-image: url(../../../images/img//map-image.png);
+	background-repeat: no-repeat;
+	background-position: center
+}
+
+	#homePage section#contact .section-heading
+	{
+		color: #fff
+	}
+
+	#homePage section#contact .form-group
+	{
+		margin-bottom: 25px
+	}
+
+		#homePage section#contact .form-group input, #homePage section#contact .form-group textarea
+		{
+			padding: 20px
+		}
+
+			#homePage section#contact .form-group input.form-control
+			{
+				height: auto
+			}
+
+			#homePage section#contact .form-group textarea.form-control
+			{
+				height: 248px
+			}
+
+	#homePage section#contact .form-control:focus
+	{
+		border-color: #fed136;
+		box-shadow: none
+	}
+
+	#homePage section#contact ::-webkit-input-placeholder
+	{
+		font-weight: 700;
+		color: #ced4da;
+		font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+
+	#homePage section#contact :-moz-placeholder
+	{
+		font-weight: 700;
+		color: #ced4da;
+		font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+
+	#homePage section#contact ::-moz-placeholder
+	{
+		font-weight: 700;
+		color: #ced4da;
+		font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+
+	#homePage section#contact :-ms-input-placeholder
+	{
+		font-weight: 700;
+		color: #ced4da;
+		font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+
+/*  -------------------------
+	Home Page Contact End
+	-------------------------  */
+
+
+/*  -------------------------
+	Home Page Social Button Begin
+	-------------------------  */
+
+#homePage ul.social-buttons
+{
+	margin-bottom: 0
+}
+
+	#homePage ul.social-buttons li a
+	{
+		font-size: 20px;
+		line-height: 40px;
+		display: block;
+		width: 40px;
+		height: 40px;
+		-webkit-transition: all .3s;
+		-moz-transition: all .3s;
+		transition: all .3s;
+		color: #fff;
+		border-radius: 100%;
+		outline: 0;
+		background-color: #212529
+	}
+
+		#homePage ul.social-buttons li a:active, #homePage ul.social-buttons li a:focus, #homePage ul.social-buttons li a:hover
+		{
+			background-color: #fed136
+		}
+
+/*  -------------------------
+	Home Page Social Button End
+	-------------------------  */
+
+#homePage img.img-responsive
+{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/*  -------------------------
+	Home Page Social Button End
+	-------------------------  */
+
+

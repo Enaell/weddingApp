@@ -1,4 +1,5 @@
 //var ps = new PerfectScrollbar('#mainSection');
+var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 
 
 jQuery(document).ready(function ($)
@@ -21,7 +22,6 @@ jQuery(document).ready(function ($)
 	isAnimated = false;
 
 	// Perfect Scrollbar
-	var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 	container = document.getElementById("mainSection");
 
 	// ps.update(); when size of mainSection change, like when page is changeds
@@ -162,41 +162,43 @@ jQuery(document).ready(function ($)
 
 
 
-	function showPage(pageId)
+
+});
+
+function showPage(pageId)
+{
+	$('.page').each(function ()
 	{
-		$('.page').each(function ()
+		var page = $(this);
+		if (this.id !== pageId)
 		{
-			var page = $(this);
-			if (this.id !== pageId)
+			page.removeClass('shown');
+			document.querySelector('#mainSection').scrollTop = 0;
+			ps.update();
+		} else
+		{
+			if (page.children().length == 0) // CA MARCHE ! OMG !!
 			{
-				page.removeClass('shown');
+				$.ajax({
+					method: "GET",
+					url: "http://localhost:1337/timeline",
+					success: function (data)
+					{
+						//data is the resultant html when gets created by res.render()
+						// wanna show it, add it to the dom
+						page.html(data);
+						page.addClass('shown');
+						document.querySelector('#mainSection').scrollTop = 0;
+						ps.update();
+					}
+				});
+			}
+			else
+			{
+				page.addClass('shown');
 				document.querySelector('#mainSection').scrollTop = 0;
 				ps.update();
-			} else
-				{
-				if (page.children().length == 0) // CA MARCHE ! OMG !!
-				{
-					$.ajax({
-						method: "GET",
-						url: "http://localhost:1337/timeline",
-						success: function (data)
-						{
-							//data is the resultant html when gets created by res.render()
-							// wanna show it, add it to the dom
-							page.html(data);
-							page.addClass('shown');
-							document.querySelector('#mainSection').scrollTop = 0;
-							ps.update();
-						}
-					});
-				}
-				else
-				{
-					page.addClass('shown');
-					document.querySelector('#mainSection').scrollTop = 0;
-					ps.update();
-				}
 			}
-		})
-	}
-});
+		}
+	})
+}

@@ -1,0 +1,17 @@
+/* FONT PATH
+ * -------------------------- */
+@font-face
+{
+	font-family: 'Tangerine';
+	src: url('./Tangerine_Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'Tangerine-Bold';
+	src: url('./Tangerine_Bold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
