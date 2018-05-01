@@ -1,12 +1,14 @@
 
 #google-container
 {
+	border-radius: 25px;
 	position: relative;
 	margin: auto;
-	width: 80%;
+	width: 66%;
 	height: 200px;
-	background-color: #e7eaf0;
+	background-color: #d0636c;
 }
+
 
 @media only screen and (min-width: 768px)
 {
@@ -20,44 +22,22 @@
 {
 	#google-container
 	{
-		height: 600px;
+		height: 500px;
 	}
 }
 
 #google-map
 {
 	position: relative;
+	background-image: url('../../../images/img/homePage/bgMap1.jpg');
+	background-size: cover;
 }
 
-	#google-map #address
+	#google-map .section-subheading
 	{
-		font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-		text-align:center;
+		padding-top: 40px;
+		margin-bottom: 20px !important;
 	}
-
-
-	#google-map address
-	{
-		position: relative;
-		width: 100%;
-		margin: auto;
-		/*padding-bottom: 1em;*/
-		color: white;
-		font-size: 40px;
-	}
-
-@media only screen and (min-width: 768px)
-{
-	#google-map address
-	{
-		position: relative;
-		width: 100%;
-		margin: auto;
-		/*padding-bottom: 1em;*/
-		color: white;
-		font-size: 40px;
-	}
-}
 
 #zoom-in, #zoom-out
 {

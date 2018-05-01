@@ -95,6 +95,7 @@
 	</div>
 </section>
 <!-- Portfolio Grid -->
+
 <section id="portfolio">
 	<!-- <section class="bg-pastelRed" id="portfolio">  -->
 	<div class="projects-wrapper">
@@ -250,11 +251,13 @@
 </section>
 
 <section class="bg-pastelRed" id="google-map">
-	<address>
+	<!--<address>
 		<p id="address">
-			Lieu du Marriage : 86-90 Paul Street, London, EC2A 4NE
+			Lieu du Marriage
 		</p>
-	</address>
+	</address>-->
+	<h2 class="section-heading text-center">Lieu du Mariage</h2>
+	<h3 class="section-subheading text-center">Dongtai, Yancheng, Jiangsu, China</h3>
 	<div id="google-container"></div>
 	<div id="zoom-in"></div>
 	<div id="zoom-out"></div>
@@ -265,7 +268,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading ">le Marriage</h2>
+				<h2 class="section-heading ">Le Marriage</h2>
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
@@ -354,32 +357,32 @@
 		</div>
 		<div class="row">
 			<%
-			for (var i = 0; i < introBoxes.length; ++i)
+			for (var i = 0; i < projectBoxes.length; ++i)
 			{
 			%>
 			<div class="col-sm-4">
 				<!--<div class="intro-box">
-					<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
-					<h4><%= introBoxes[i].title %></h4>
-					<p><%= introBoxes[i].text %></p>
-				</div>-->
+			<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+			<h4><%= introBoxes[i].title %></h4>
+			<p><%= introBoxes[i].text %></p>
+		</div>-->
 
 				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
 							<!-- front content -->
-							<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
-							<h4><%= introBoxes[i].title %></h4>
-							<p><%= introBoxes[i].text %></p>
-
-
+							<img class="img-responsive" src="<%= projectBoxes[i].imgSrc %>" alt="" />
+							<h4><bold><%= projectBoxes[i].title %></bold></h4>
+							<p class="text-muted"><%= projectBoxes[i].shortText %></p>
 						</div>
 						<div class="back">
 							<!-- back content -->
-							<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
-							<h4><%= introBoxes[i].title %></h4>
-							<p><%= introBoxes[i].text %></p>
-
+							<div  style="background-image:url(<%=projectBoxes[i].imgSrc%>); background-size:cover; filter: blur(10px) brightness(50%); width: 100%; min-height: 350px; position:absolute">
+							</div>
+							<div style="position: absolute;">
+								<h4><%= projectBoxes[i].title %></h4>
+								<p><%= projectBoxes[i].text %></p>
+							</div>
 						</div>
 					</div>
 				</div>

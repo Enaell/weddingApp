@@ -23,18 +23,27 @@ router.get('/', function (req, res)
 	var ourStoryBoxes =
 		[
 			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'Notre rencontre', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
-			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'Notre amour a distance', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
-			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'Nos retrouvailles', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
+			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'Un amour a distance', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
+			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'La vie ensemble', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
 			{ imgSrc: './images/img/homePage/b-icon-1.png', title: 'Notre Marriage', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' }
-		]
-	// render index 
+		];
+
+	var projectBoxes =
+		[
+			{ imgSrc: './images/img/projects/homePage/voyage1.jpg', title: 'La lune de miel', shortText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
+			{ imgSrc: './images/img/projects/homePage/maison1.jpg', title: 'Notre premier chez nous', shortText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',  text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' },
+			{ imgSrc: './images/img/projects/homePage/mariage1.jpg', title: 'Le marriage a l\'Eglise', shortText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. ' }
+		];
+
+	// render index
 	res.render('index',
 		{
 			url: 'http://localhost:1337/',
 			title: 'Main Page',
 			loggedin: loggedIn,
 			introBoxes: introBoxes,
-			ourStoryBoxes: ourStoryBoxes
+			ourStoryBoxes: ourStoryBoxes,
+			projectBoxes: projectBoxes
 		});
 
 	//render timeline 
