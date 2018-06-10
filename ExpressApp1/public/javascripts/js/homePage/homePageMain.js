@@ -11,6 +11,11 @@ jQuery(document).ready(function ($)
 
 	var canScroll = true;
 	var portfolioIsShown = false;
+	var newsBoxIsShown = [];
+	$('.news-box').each(function ()
+	{
+		newsBoxIsShown.push(false);
+	});
 
 
 	function mainSectionSmoothScroll(distance, direction)
@@ -92,6 +97,12 @@ jQuery(document).ready(function ($)
 			showPortfolio();
 			portfolioIsShown = true;
 		}
+
+		$('.news-box').each(function (index)
+		{
+			if (!newsBoxIsShown[index] && $(this).offset().top < $(window).height() * 3 / 4)
+				newsBox(index, $(this))
+		});
 	});
 
 
@@ -145,11 +156,6 @@ jQuery(document).ready(function ($)
 	animateHeadline($('.rotate.seconds'));
 
 
-	//animateHeadline($('.rotate.minutes'));
-	//animateHeadline($('.rotate.hours'));
-	//animateHeadline($('.rotate.days'));
-
-
 	function hideWord($word)
 	{
 		var nextWord = takeNext($word, $('.rotate.minutes .is-visible'));
@@ -194,4 +200,30 @@ jQuery(document).ready(function ($)
 			//other checks here ...
 		});
 	}
+
+
+
+	function newsBox(index, $newsBox)
+	{
+		newsBoxIsShown[index] = true;
+		$newsBox.find($('.boxOutline')).addClass('shown');
+		$newsBox.find($('.postDrawingAnimation')).addClass('disapear');
+		$newsBox.find($('.postDrawingAnimation2')).addClass('disapear');
+		setTimeout(showNewsPicture.bind(null, $newsBox), 2000);
+		setTimeout(showNewsText.bind(null, $newsBox), 3200);
+
+	}
+
+	function showNewsPicture($newsBox)
+	{
+		$newsBox.find($('.news-picture')).fadeIn();
+	}
+
+	function showNewsText($newsBox)
+	{
+		$newsBox.find($('.news-post')).fadeIn();
+		$newsBox.find($('.postDrawingAnimation2')).hide();
+		$newsBox.find($('.postDrawingAnimation')).hide();
+	}
 });
+

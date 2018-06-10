@@ -405,21 +405,42 @@
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 		</div>
-		<div class="row" style="padding-top: 50px;">
-			<%
-			for (var i = 0; i < introBoxes.length; ++i)
-			{
-			%>
-			<div class="col-sm-4">
-				<div class="news-box">
-					<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
-					<h2><%= introBoxes[i].title %></h2>
+
+		<%
+		for (var i = 0; i < projectBoxes.length; ++i)
+		{
+		%>
+		<div class="row news-box" <% if (i % 2 != 0){ %> style="flex-direction: row-reverse; text-align:right" <%}%>>
+			<div class="col-5" style="overflow: hidden">
+
+				<img class="news-picture" src="<%= projectBoxes[i].imgSrc %>" />
+				<!--<div class="news-picture" style="background-image:url(<%= projectBoxes[i].imgSrc %>)"></div>-->
+
+			</div>
+
+			<div class="col-6 news-text">
+				<div class="boxOutline" <% if (i % 2 != 0){ %> style="margin-left: -3.5%;" <%}%>></div>
+				<div <% if (i % 2 != 0){ %> class="postDrawingAnimation2"  <%} else {%> class="postDrawingAnimation" <%}%>></div>
+				<div class="news-post">
+					<h2><%= projectBoxes[i].title %></h2>
 					<h5>by Admin jj/mm/yyyy</h5>
-					<p><%= introBoxes[i].text %></p>
+					<p><%= projectBoxes[i].shortText %></p>
+					<button type="button" class="btn btn-primary">Article complet</button>
 				</div>
 			</div>
-			<%}%>
+			<!--<div class="col-12">
+				<div class="news-box" <% if (i % 2 != 0){ %> style="flex-direction: row-reverse;" <%}%> >
+					<div class="news-text">
+						<h2><%= projectBoxes[i].title %></h2>
+						<h5>by Admin jj/mm/yyyy</h5>
+						<p><%= projectBoxes[i].shortText %></p>
+					</div>
+				</div>
+			</div>-->
+
 		</div>
+		<%}%>
+
 	</div>
 </section>
 
