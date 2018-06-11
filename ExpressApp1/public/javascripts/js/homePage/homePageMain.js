@@ -1,5 +1,5 @@
-jQuery(document).ready(function ($)
-{
+//jQuery(document).ready(function ($)
+//{
 	var container = document.getElementById("mainSection");
 
 	var contentSections = $('#homePage section');
@@ -85,8 +85,6 @@ jQuery(document).ready(function ($)
 		});
 	}
 
-
-
 	container.addEventListener('ps-scroll-y', function () 
 	{
 		$('#homePageVerticalNav').offset({ top: 0, left: $('#homePageVerticalNav').offset.left });
@@ -97,6 +95,12 @@ jQuery(document).ready(function ($)
 			showPortfolio();
 			portfolioIsShown = true;
 		}
+
+		$('.timeline-block').each(function()
+		{
+			if ($(this).find('.timeline-img').hasClass('is-hidden') && $(this).offset().top < $(window).height() * 3 / 4)
+				$(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
+		})
 
 		$('.news-box').each(function (index)
 		{
@@ -225,5 +229,5 @@ jQuery(document).ready(function ($)
 		$newsBox.find($('.postDrawingAnimation2')).hide();
 		$newsBox.find($('.postDrawingAnimation')).hide();
 	}
-});
+//});
 

@@ -4,7 +4,7 @@
 <link href="stylesheets/css/homePage/verticalNavbar.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/homePagePortfolio.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/homePageMap.css" rel="stylesheet">
-
+<link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
 
 <!--Navigation-->
 <div class="vertical-nav" id="homePageVerticalNav">
@@ -12,7 +12,7 @@
 		<li><a href="#intro" class="active"><span class="label">Intro</span></a></li>
 		<li><a href="#services"><span class="label">Services</span></a></li>
 		<li><a href="#portfolio"><span class="label">Portfolio</span></a></li>
-		<li><a href="#about"><span class="label">le Marriage</span></a></li>
+		<li><a href="#timeline"><span class="label">le Marriage</span></a></li>
 		<li><a href="#contact"><span class="label">Contact</span></a></li>
 	</ul>
 </div><!-- .vertical-nav -->
@@ -263,89 +263,41 @@
 	<div id="zoom-out"></div>
 </section>
 
-<!-- About -->
-<section id="about">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h2 class="section-heading ">Le Marriage</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-			</div>
-		</div>
+<!-- Timeline -->
+<section id="timeline" class="container">
+	<h2 class="section-heading text-center">Lieu du Mariage</h2>
+	<h3 class="section-subheading text-center" style="padding-bottom: 30px">Dongtai, Yancheng, Jiangsu, China</h3>
 
-		<div class="row">
-			<div class="col-lg-12">
-				<ul class="timeline">
-					<li>
-						<div class="timeline-image">
-							<img class="rounded-circle img-fluid" src="images/img/about/1.jpg" alt="">
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4>2009-2011</h4>
-								<h4 class="subheading">Our Humble Beginnings</h4>
-							</div>
-							<div class="timeline-body">
-								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-							</div>
-						</div>
-					</li>
-					<li class="timeline-inverted">
-						<div class="timeline-image">
-							<img class="rounded-circle img-fluid" src="images/img/about/2.jpg" alt="">
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4>March 2011</h4>
-								<h4 class="subheading">An Agency is Born</h4>
-							</div>
-							<div class="timeline-body">
-								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="timeline-image">
-							<img class="rounded-circle img-fluid" src="images/img/about/3.jpg" alt="">
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4>December 2012</h4>
-								<h4 class="subheading">Transition to Full Service</h4>
-							</div>
-							<div class="timeline-body">
-								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-							</div>
-						</div>
-					</li>
-					<li class="timeline-inverted">
-						<div class="timeline-image">
-							<img class="rounded-circle img-fluid" src="images/img/about/4.jpg" alt="">
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h4>July 2014</h4>
-								<h4 class="subheading">Phase Two Expansion</h4>
-							</div>
-							<div class="timeline-body">
-								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-							</div>
-						</div>
-					</li>
-					<li class="timeline-inverted">
-						<div class="timeline-image">
-							<h4>
-								Be Part
-								<br>Of Our
-								<br>Story!
-							</h4>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<%
+	var icon = '';
+	for (var i = 0; i < tripSteps.length; ++i)
+	{
+		if (tripSteps[i].priority > 2)
+		{
+			if (tripSteps[i].type == 'city')
+				icon = 'images/img/timeline/icon-picture.svg';
+			else if (tripSteps[i].type == 'monument')
+				icon = 'images/img/timeline/icon-movie.svg';
+			else
+				icon = 'images/img/timeline/icon-location.svg';
+	%>
+	<div class="timeline-block">
+		<div class="timeline-img picture is-hidden">
+			<img src="<%=icon%>" alt="Picture">
+		</div> <!-- timeline-img -->
+
+		<div class="timeline-content is-hidden">
+			<h2><%=tripSteps[i].title%></h2>
+			<p> <%=tripSteps[i].description%> </p>
+			<button type="button" class="btn btn-primary">Read More</button>
+			<span class="date"><%=tripSteps[i].date%></span>
+		</div> <!-- timeline-content -->
+	</div> <!-- timeline-block -->
+	<%	}
+	}%>
+
 </section>
+
 <!-- Our Projects-->>
 <section id="ourProject" class="bg-pastelRed">
 	<div id="projects">
@@ -362,10 +314,10 @@
 			%>
 			<div class="col-sm-4">
 				<!--<div class="intro-box">
-			<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
-			<h4><%= introBoxes[i].title %></h4>
-			<p><%= introBoxes[i].text %></p>
-		</div>-->
+					<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+					<h4><%= introBoxes[i].title %></h4>
+					<p><%= introBoxes[i].text %></p>
+				</div>-->
 
 				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
@@ -377,7 +329,7 @@
 						</div>
 						<div class="back">
 							<!-- back content -->
-							<div  style="background-image:url(<%=projectBoxes[i].imgSrc%>); background-size:cover; filter: blur(10px) brightness(50%); width: 100%; min-height: 350px; position:absolute">
+							<div style="background-image:url(<%=projectBoxes[i].imgSrc%>); background-size:cover; filter: blur(10px) brightness(50%); width: 100%; min-height: 350px; position:absolute">
 							</div>
 							<div style="position: absolute;">
 								<h4><%= projectBoxes[i].title %></h4>

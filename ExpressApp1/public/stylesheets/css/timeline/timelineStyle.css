@@ -3,40 +3,39 @@
 Primary style
 
 -------------------------------- */
-html #timelinePage *
+html section#timeline *
 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-#timelinePage *, #timelinePage *:after, *:before
+section#timeline *, section#timeline *:after, *:before
 {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-body #timelinePage
+body section#timeline
 {
-	font-size: 100%;
 	font-family: "Droid Serif", serif;
 	color: #7f8c97;
-	background-color: #e9f0f5;
+	background-color: transparent;
 }
 
-#timelinePage a
+section#timeline a
 {
 	color: #acb7c0;
 	text-decoration: none;
 	font-family: "Open Sans", sans-serif;
 }
 
-#timelinePage img
+section#timeline img
 {
 	max-width: 100%;
 }
 
-#timelinePage h1, h2
+section#timeline h1, h2
 {
 	font-family: "Open Sans", sans-serif;
 	font-weight: bold;
@@ -47,7 +46,7 @@ body #timelinePage
 Modules - reusable parts of our design
 
 -------------------------------- */
-#timelinePage .container
+section#timeline .container
 {
 	/* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
 	width: 90%;
@@ -55,7 +54,7 @@ Modules - reusable parts of our design
 	margin: 0 auto;
 }
 
-#timelinePage .container::after
+section#timeline .container::after
 {
 	/* clearfix */
 	content: '';
@@ -68,7 +67,7 @@ Modules - reusable parts of our design
 Main components 
 
 -------------------------------- */
-#timelinePage header
+section#timeline header
 {
 	height: 200px;
 	line-height: 200px;
@@ -76,29 +75,25 @@ Main components
 	background: #303e49;
 }
 
-#timelinePage header h1
+section#timeline header h1
 {
 	color: white;
-	font-size: 18px;
-	font-size: 1.125rem;
 }
 
 @media only screen and (min-width: 1170px) 
 {
-	#timelinePage header
+	section#timeline header
 	{
 		height: 300px;
 		line-height: 300px;
 	}
 
-	#timelinePage header h1
+	section#timeline header h1
 	{
-		font-size: 24px;
-		font-size: 1.5rem;
 	}
 }
 
-#timelinePage #timeline
+section#timeline #timeline
 {
 	position: relative;
 	padding: 2em 0;
@@ -106,7 +101,7 @@ Main components
 	margin-bottom: 2em;
 }
 
-#timelinePage #timeline::before
+section#timeline #timeline::before
 {
 	/* this is the vertical line */
 	content: '';
@@ -118,60 +113,72 @@ Main components
 	background: #d7e4ed;
 }
 
+.timeline-block::before
+{
+	/* this is the vertical line */
+	content: '';
+	position: absolute;
+	top: -4em;
+	left: 50%;
+	height: calc(100% + 4em);
+	width: 4px;
+	background: #d2687d;
+}
+
 @media only screen and (min-width: 1170px) 
 {
-	#timelinePage #timeline
+	section#timeline #timeline
 	{
 		margin-top: 3em;
 		margin-bottom: 3em;
 	}
-	#timelinePage #timeline::before
+	section#timeline #timeline::before
 	{
 		left: 50%;
 		margin-left: -2px;
 	}
 }
 
-#timelinePage .timeline-block
+section#timeline .timeline-block
 {
 	position: relative;
 	margin: 2em 0;
 }
 
-#timelinePage .timeline-block:after
+section#timeline .timeline-block:after
 {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#timelinePage .timeline-block:first-child
+section#timeline .timeline-block:first-child
 {
 	margin-top: 0;
 }
 
-#timelinePage timeline-block:last-child
+section#timeline timeline-block:last-child
 {
 	margin-bottom: 0;
 }
 
 @media only screen and (min-width: 1170px) 
 {
-	#timelinePage .timeline-block
+	section#timeline .timeline-block
 	{
 		margin: 4em 0;
 	}
-	#timelinePage .timeline-block:first-child
+	section#timeline .timeline-block:first-child
 	{
 		margin-top: 0;
 	}
-	#timelinePage .timeline-block:last-child
+	section#timeline .timeline-block:last-child
 	{
 		margin-bottom: 0;
 	}
 }
 
-#timelinePage .timeline-img
+section#timeline .timeline-img
 {
 	position: absolute;
 	top: 0;
@@ -179,10 +186,10 @@ Main components
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 0 4px #ba1737, inset 0 2px 0 rgb(210, 104, 125), 0 3px 0 4px rgb(186, 22, 54);
 }
 
-#timelinePage .timeline-img img
+section#timeline .timeline-img img
 {
 	display: block;
 	width: 24px;
@@ -194,24 +201,24 @@ Main components
 	margin-top: -12px;
 }
 
-#timelinePage .timeline-img.picture
-{
-	background: #75ce66;
-}
+	section#timeline .timeline-img.picture
+	{
+		background: #d0636c;
+	}
 
-#timelinePage .timeline-img.movie
+section#timeline .timeline-img.movie
 {
 	background: #c03b44;
 }
 
-#timelinePage .timeline-img.location
+section#timeline .timeline-img.location
 {
 	background: #f0ca45;
 }
 
 @media only screen and (min-width: 1170px) 
 {
-	#timelinePage .timeline-img
+	section#timeline .timeline-img
 	{
 		width: 60px;
 		height: 60px;
@@ -222,12 +229,12 @@ Main components
 		-webkit-backface-visibility: hidden;
 	}
 
-	#timelinePage .cssanimations .timeline-img.is-hidden
+	section#timeline .timeline-img.is-hidden
 	{
 		visibility: hidden;
 	}
 
-	#timelinePage .cssanimations .timeline-img.bounce-in
+	section#timeline .timeline-img.bounce-in
 	{
 		visibility: visible;
 		-webkit-animation: bounce-1 0.6s;
@@ -296,45 +303,43 @@ Main components
   }
 }
 
-#timelinePage .timeline-content
+section#timeline .timeline-content
 {
 	position: relative;
 	margin-left: 60px;
 	background: white;
 	border-radius: 0.25em;
 	padding: 1em;
-	box-shadow: 0 3px 0 #d7e4ed;
+	/*box-shadow: 0 3px 0 #d7e4ed;*/
 }
-#timelinePage .timeline-content:after
+section#timeline .timeline-content:after
 {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#timelinePage .timeline-content h2
+section#timeline .timeline-content h2
 {
 	color: #303e49;
 }
 
-#timelinePage .timeline-content p, #timelinePage .timeline-content .read-more, #timelinePage .timeline-content .date
+section#timeline .timeline-content p, section#timeline .timeline-content .read-more, section#timeline .timeline-content .date
 {
-	font-size: 13px;
-	font-size: 0.8125rem;
 }
 
-#timelinePage .timeline-content .read-more, #timelinePage .timeline-content .date
+section#timeline .timeline-content .read-more, section#timeline .timeline-content .date
 {
 	display: inline-block;
 }
 
-#timelinePage .timeline-content p
+section#timeline .timeline-content p
 {
 	margin: 1em 0;
 	line-height: 1.6;
 }
 
-#timelinePage .timeline-content .read-more
+section#timeline .timeline-content .read-more
 {
 	float: right;
 	padding: .8em 1em;
@@ -342,19 +347,19 @@ Main components
 	color: white;
 	border-radius: 0.25em;
 }
-#timelinePage .no-touch .timeline-content .read-more:hover
+section#timeline .no-touch .timeline-content .read-more:hover
 {
 	background-color: #bac4cb;
 }
 
-#timelinePage .timeline-content .date
+section#timeline .timeline-content .date
 {
 	float: left;
 	padding: .8em 0;
 	opacity: .7;
 }
 
-#timelinePage .timeline-content::before
+section#timeline .timeline-content::before
 {
 	content: '';
 	position: absolute;
@@ -367,56 +372,50 @@ Main components
 }
 @media only screen and (min-width: 768px) 
 {
-	#timelinePage .timeline-content h2
+	section#timeline .timeline-content h2
 	{
-		font-size: 20px;
-		font-size: 1.25rem;
 	}
-	#timelinePage .timeline-content p
+	section#timeline .timeline-content p
 	{
-		font-size: 16px;
-		font-size: 1rem;
 	}
-	#timelinePage .timeline-content .read-more, .timeline-content .date
+	section#timeline .timeline-content .read-more, .timeline-content .date
 	{
-		font-size: 14px;
-		font-size: 0.875rem;
 	}
 }
 
 @media only screen and (min-width: 1170px) 
 {
-	#timelinePage .timeline-content
+	section#timeline .timeline-content
 	{
 		margin-left: 0;
 		padding: 1.6em;
 		width: 45%;
+		box-shadow: 3px 3px 3px 5px #ba1636;
 	}
-	#timelinePage .timeline-content::before
+	section#timeline .timeline-content::before
 	{
 		top: 24px;
 		left: 100%;
 		border-color: transparent;
 		border-left-color: white;
 	}
-	#timelinePage .timeline-content .read-more
+	section#timeline .timeline-content .read-more
 	{
 		float: left;
-	}
-	#timelinePage .timeline-content .date
+	}	
+	section#timeline .timeline-content .date
 	{
 		position: absolute;
 		width: 100%;
 		left: 122%;
 		top: 6px;
-		font-size: 16px;
-		font-size: 1rem;
 	}
-	#timelinePage .timeline-block:nth-child(even) .timeline-content
+	section#timeline .timeline-block:nth-child(even) .timeline-content
 	{
 		float: right;
+		box-shadow: -3px 3px 3px 5px #ba1636;
 	}
-	#timelinePage .timeline-block:nth-child(even) .timeline-content::before
+	section#timeline .timeline-block:nth-child(even) .timeline-content::before
 	{
 		top: 24px;
 		left: auto;
@@ -424,21 +423,21 @@ Main components
 		border-color: transparent;
 		border-right-color: white;
 	}
-	#timelinePage .timeline-block:nth-child(even) .timeline-content .read-more
+	section#timeline .timeline-block:nth-child(even) .timeline-content .read-more
 	{
 		float: right;
 	}
-	#timelinePage .timeline-block:nth-child(even) .timeline-content .date
+	section#timeline .timeline-block:nth-child(even) .timeline-content .date
 	{
 		left: auto;
 		right: 122%;
 		text-align: right;
 	}
-	#timelinePage .cssanimations .timeline-content.is-hidden
+	section#timeline .timeline-content.is-hidden
 	{
 		visibility: hidden;
 	}
-	#timelinePage .cssanimations .timeline-content.bounce-in
+	section#timeline .timeline-content.bounce-in
 	{
 		visibility: visible;
 		-webkit-animation: bounce-2 0.6s;
@@ -450,7 +449,7 @@ Main components
 @media only screen and (min-width: 1170px) 
 {
   /* inverse bounce effect on even content blocks */
-	#timelinePage .cssanimations .timeline-block:nth-child(even) .timeline-content.bounce-in
+	section#timeline .timeline-block:nth-child(even) .timeline-content.bounce-in
 	{
 		-webkit-animation: bounce-2-inverse 0.6s;
 		-moz-animation: bounce-2-inverse 0.6s;
