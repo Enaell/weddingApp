@@ -1,0 +1,448 @@
+﻿<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+<link href="stylesheets/css/homePage/agency.css" rel="stylesheet">
+<link href="stylesheets/css/homePage/verticalNavbar.css" rel="stylesheet">
+<link href="stylesheets/css/homePage/homePagePortfolio.css" rel="stylesheet">
+<link href="stylesheets/css/homePage/homePageMap.css" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
+
+<!--Navigation-->
+<div class="vertical-nav" id="homePageVerticalNav">
+	<ul>
+		<li><a href="#intro" class="active"><span class="label">Intro</span></a></li>
+		<li><a href="#services"><span class="label">Services</span></a></li>
+		<li><a href="#portfolio"><span class="label">Portfolio</span></a></li>
+		<li><a href="#timeline"><span class="label">le Marriage</span></a></li>
+		<li><a href="#contact"><span class="label">Contact</span></a></li>
+	</ul>
+</div><!-- .vertical-nav -->
+<!-- Header -->
+<header class="masthead">
+	<section id="intro">
+		<div id="page-top">
+			<div class="intro-text">
+				<div class="intro-lead-in">Aurélien & Lulu</div>
+				<div class="intro-heading ">Nous nous Marrions</div>
+				<a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Tell Me More</a>
+			</div>
+		</div>
+		<div class="curve">
+			<img class="img-responsive" src="images/img/homePage/curve.png">
+			<div class="row container" id="intro-Boxes">
+				<%
+				for (var i = 0; i < introBoxes.length; ++i)
+				{
+				%>
+				<div class="col-sm-4">
+					<div class="intro-box">
+						<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+						<h4><%= introBoxes[i].title %></h4>
+						<p><%= introBoxes[i].text %></p>
+					</div>
+				</div>
+				<%}%>
+			</div>
+
+		</div>
+	</section>
+</header>
+<!-- Services  && TEAM-->
+<section id="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading ">Un Heureux Couple</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
+		</div>
+		<div class="row text-center teamRow">
+			<div class="col-sm-5 team">
+				<img class="img-responsive" src="images/img/homePage/Auerlien1.png" />
+				<h4 class="service-heading">Aurélien Martin</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</div>
+			<div class="col-sm-2">
+				<img src="images/img/homePage/bouquet.png" alt="" class="img-responsive">
+				<h4 class="service-heading">Responsive Design</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</div>
+			<div class="col-sm-5 team">
+				<img class="img-responsive" src="images/img/homePage/Lulu1.JPG" />
+				<h4 class="service-heading">王璐露</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</div>
+		</div>
+		<div class="row" id="ourStory" style="padding-top: 50px;">
+			<div class="col-lg-12 text-center">
+				<h2 class="subsection-heading ">Notre Histoire</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
+			<%
+			for (var i = 0; i < ourStoryBoxes.length; ++i)
+			{
+			%>
+			<div class="col-sm-6">
+				<div class="story-box">
+					<div class="story-head">
+						<img class="img-responsive" src="<%= ourStoryBoxes[i].imgSrc %>" alt="" />
+						<h2><%= ourStoryBoxes[i].title %></h2>
+					</div>
+					<p><%= ourStoryBoxes[i].text %></p>
+				</div>
+			</div>
+			<%}%>
+		</div>
+	</div>
+</section>
+<!-- Portfolio Grid -->
+
+<section id="portfolio">
+	<!-- <section class="bg-pastelRed" id="portfolio">  -->
+	<div class="projects-wrapper">
+		<ul class="slider">
+			<li class="current">
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 1</h2>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 2</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, dicta.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 3</h2>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 4</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 5</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 6</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 7</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 8</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#0">
+					<img src="images/img/homePage/img.png" alt="project image">
+					<div class="project-info">
+						<h2>Project 9</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+					</div>
+				</a>
+			</li>
+			<div id="morePict" style="">get more </div>
+		</ul>
+
+		<ul class="slider-navigation img-replace">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .slider-navigation -->
+	</div> <!-- .projects-wrapper -->
+	<!--Compte a rebour !-->
+	<div class="timer">
+		Nous nous marrions dans :
+
+		<div style="padding-top: 20px;">
+			<h1 class="rotate days">
+				<span class="words-wrapper">
+					<%
+					for (var i = 147; i >= 0; --i)
+					{%>
+					<b class="is-hidden"><%=i%></b>
+					<%}%>
+				</span>
+			</h1>
+			<h1 class="rotate hours">
+				<span class="words-wrapper">
+					<%
+					for (var i = 23; i >= 0; --i)
+					{%>
+					<b class="is-hidden"><%=i%></b>
+					<%}%>
+				</span>
+			</h1>
+			<h1 class="rotate minutes">
+				<span class="words-wrapper">
+					<%
+					for (var i = 59; i >= 0; --i)
+					{%>
+					<b class="is-hidden"><%=i%></b>
+					<%}%>
+				</span>
+			</h1>
+			<h1 class="rotate seconds">
+				<span class="words-wrapper">
+					<%
+					for (var i = 59; i >= 0; --i)
+					{%>
+					<b class="is-hidden"><%=i%></b>
+					<%}%>
+				</span>
+			</h1>
+			<div>
+				<p style="display: inline-block; position: relative; width: 80px">Jours</p>
+				<p style="display: inline-block; position: relative; width: 80px">Heures</p>
+				<p style="display: inline-block; position: relative; width: 80px">Minutes</p>
+				<p style="display: inline-block; position: relative; width: 80px">Secondes</p>
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+<section class="bg-pastelRed" id="google-map">
+	<!--<address>
+		<p id="address">
+			Lieu du Marriage
+		</p>
+	</address>-->
+	<h2 class="section-heading text-center">Lieu du Mariage</h2>
+	<h3 class="section-subheading text-center">Dongtai, Yancheng, Jiangsu, China</h3>
+	<div id="google-container"></div>
+	<div id="zoom-in"></div>
+	<div id="zoom-out"></div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" class="container">
+	<h2 class="section-heading text-center">Lieu du Mariage</h2>
+	<h3 class="section-subheading text-center" style="padding-bottom: 30px">Dongtai, Yancheng, Jiangsu, China</h3>
+
+	<%
+	var icon = '';
+	for (var i = 0; i < tripSteps.length; ++i)
+	{
+		if (tripSteps[i].priority > 2)
+		{
+			if (tripSteps[i].type == 'city')
+				icon = 'images/img/timeline/icon-picture.svg';
+			else if (tripSteps[i].type == 'monument')
+				icon = 'images/img/timeline/icon-movie.svg';
+			else
+				icon = 'images/img/timeline/icon-location.svg';
+	%>
+	<div class="timeline-block">
+		<div class="timeline-img picture is-hidden">
+			<img src="<%=icon%>" alt="Picture">
+		</div> <!-- timeline-img -->
+
+		<div class="timeline-content is-hidden">
+			<h2><%=tripSteps[i].title%></h2>
+			<p> <%=tripSteps[i].description%> </p>
+			<button type="button" class="btn btn-primary">Read More</button>
+			<span class="date"><%=tripSteps[i].date%></span>
+		</div> <!-- timeline-content -->
+	</div> <!-- timeline-block -->
+	<%	}
+	}%>
+
+</section>
+
+<!-- Our Projects-->>
+<section id="ourProject" class="bg-pastelRed">
+	<div id="projects">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="subsection-heading ">Nos Projets</h2>
+				<h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
+		</div>
+		<div class="row">
+			<%
+			for (var i = 0; i < projectBoxes.length; ++i)
+			{
+			%>
+			<div class="col-sm-4">
+				<!--<div class="intro-box">
+					<img class="img-responsive" src="<%= introBoxes[i].imgSrc %>" alt="" />
+					<h4><%= introBoxes[i].title %></h4>
+					<p><%= introBoxes[i].text %></p>
+				</div>-->
+
+				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+					<div class="flipper">
+						<div class="front">
+							<!-- front content -->
+							<img class="img-responsive" src="<%= projectBoxes[i].imgSrc %>" alt="" />
+							<h4><bold><%= projectBoxes[i].title %></bold></h4>
+							<p class="text-muted"><%= projectBoxes[i].shortText %></p>
+						</div>
+						<div class="back">
+							<!-- back content -->
+							<div style="background-image:url(<%=projectBoxes[i].imgSrc%>); background-size:cover; filter: blur(10px) brightness(50%); width: 100%; min-height: 350px; position:absolute">
+							</div>
+							<div style="position: absolute;">
+								<h4><%= projectBoxes[i].title %></h4>
+								<p><%= projectBoxes[i].text %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<%}%>
+		</div>
+
+
+	</div>
+
+</section>
+<!-- News -->
+<section id="news">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading ">les Dernières Nouvelles</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
+		</div>
+
+		<%
+		for (var i = 0; i < projectBoxes.length; ++i)
+		{
+		%>
+		<div class="row news-box" <% if (i % 2 != 0){ %> style="flex-direction: row-reverse; text-align:right" <%}%>>
+			<div class="col-5" style="overflow: hidden">
+
+				<img class="news-picture" src="<%= projectBoxes[i].imgSrc %>" />
+				<!--<div class="news-picture" style="background-image:url(<%= projectBoxes[i].imgSrc %>)"></div>-->
+
+			</div>
+
+			<div class="col-6 news-text">
+				<div class="boxOutline" <% if (i % 2 != 0){ %> style="margin-left: -3.5%;" <%}%>></div>
+				<div <% if (i % 2 != 0){ %> class="postDrawingAnimation2"  <%} else {%> class="postDrawingAnimation" <%}%>></div>
+				<div class="news-post">
+					<h2><%= projectBoxes[i].title %></h2>
+					<h5>by Admin jj/mm/yyyy</h5>
+					<p><%= projectBoxes[i].shortText %></p>
+					<button type="button" class="btn btn-primary">Article complet</button>
+				</div>
+			</div>
+			<!--<div class="col-12">
+				<div class="news-box" <% if (i % 2 != 0){ %> style="flex-direction: row-reverse;" <%}%> >
+					<div class="news-text">
+						<h2><%= projectBoxes[i].title %></h2>
+						<h5>by Admin jj/mm/yyyy</h5>
+						<p><%= projectBoxes[i].shortText %></p>
+					</div>
+				</div>
+			</div>-->
+
+		</div>
+		<%}%>
+
+	</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading ">Contact Us</h2>
+				<h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<form id="contactForm" name="sentMessage" novalidate>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<textarea class="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-lg-12 text-center">
+							<div id="success"></div>
+							<button id="sendMessageButton" class="btn btn-primary btn-xl " type="submit">Send Message</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB475-TngUlJcYR1YzHQUaIBjAyCQbpkj4"></script>
+<script src="javascripts/js/homePage/homePageMain.js"></script>
+<script src="javascripts/js/homePage/homePagePortfolio.js"></script>
+<script src="javascripts/js/homePage/homePageMap.js"></script>
