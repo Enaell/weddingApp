@@ -14,6 +14,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var adminRoutes = require('./routes/adminRoutes');
 var authRoutes = require('./routes/authRoutes');
+var homePageRoutes = require('./routes/homePage');
 var timelineRoutes = require('./routes/timeline');
 
 var app = express();
@@ -38,7 +39,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/Admin', adminRoutes);
 app.use('/Auth', authRoutes);
-app.use('/timeline', timelineRoutes)
+app.use('/homepage', homePageRoutes);
+app.use('/timeline', timelineRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -71,7 +73,7 @@ app.use(function (err, req, res, next) {
     });
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 
 var server = app.listen(app.get('port'), function () {
 

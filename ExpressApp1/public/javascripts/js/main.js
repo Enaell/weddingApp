@@ -145,9 +145,12 @@ jQuery(document).ready(function ($)
 
 	// Collapse Navbar
 	var navbarCollapse = function () {
-		if (document.querySelector('#mainSection').scrollTop > 100) {
+		if (document.querySelector('#mainSection').scrollTop > 100) 
+		{
 			$("#mainNav").addClass("navbar-shrink");
-		} else {
+		}
+		else 
+		{
 			$("#mainNav").removeClass("navbar-shrink");
 		}
 	};
@@ -159,46 +162,72 @@ jQuery(document).ready(function ($)
 		navbarCollapse();
 	});
 
-
-
-
-
-});
-
-function showPage(pageId)
-{
-	$('.page').each(function ()
+	function showPage(pageId)
 	{
-		var page = $(this);
-		if (this.id !== pageId)
+		$('.page').each(function ()
 		{
-			page.removeClass('shown');
-			document.querySelector('#mainSection').scrollTop = 0;
-			ps.update();
-		} else
-		{
-			if (page.children().length == 0) // CA MARCHE ! OMG !!
+			var page = $(this);
+			if (this.id !== pageId)
 			{
-				$.ajax({
-					method: "GET",
-					url: "http://localhost:1337/timeline",
-					success: function (data)
-					{
-						//data is the resultant html when gets created by res.render()
-						// wanna show it, add it to the dom
-						page.html(data);
-						page.addClass('shown');
-						document.querySelector('#mainSection').scrollTop = 0;
-						ps.update();
-					}
-				});
-			}
-			else
-			{
-				page.addClass('shown');
+				page.removeClass('shown');
 				document.querySelector('#mainSection').scrollTop = 0;
 				ps.update();
 			}
-		}
-	})
-}
+			else if (pageId === "homePage")
+			{
+				if (page.children().length == 0)
+				{
+					$.ajax({
+						method: "GET",
+						url: "http://localhost:1337/homepage",
+						success: function (data)
+						{
+							//data is the resultant html when gets created by res.render()
+							// wanna show it, add it to the dom
+							page.html(data);
+							page.addClass('shown');
+							document.querySelector('#mainSection').scrollTop = 0;
+							ps.update();
+						}
+					});
+				}
+				else
+				{
+					page.addClass('shown');
+					document.querySelector('#mainSection').scrollTop = 0;
+					ps.update();
+				}
+
+			}
+			else
+			{
+				if (page.children().length == 0) // CA MARCHE ! OMG !!
+				{
+					$.ajax({
+						method: "GET",
+						url: "http://localhost:1337/timeline",
+						success: function (data)
+						{
+							//data is the resultant html when gets created by res.render()
+							// wanna show it, add it to the dom
+							page.html(data);
+							page.addClass('shown');
+							document.querySelector('#mainSection').scrollTop = 0;
+							ps.update();
+						}
+					});
+				}
+				else
+				{
+					page.addClass('shown');
+					document.querySelector('#mainSection').scrollTop = 0;
+					ps.update();
+				}
+			}
+		})
+	}
+
+	// show homePage when site is loading
+	showPage("homePage");
+});
+
