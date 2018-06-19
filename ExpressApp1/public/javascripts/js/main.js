@@ -2,8 +2,6 @@
 var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 
 
-jQuery(document).ready(function ($)
-{
 	var MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
 	$(window).on('resize', function ()
 	{
@@ -229,5 +227,4 @@ jQuery(document).ready(function ($)
 
 	// show homePage when site is loading
 	showPage("homePage");
-});
 

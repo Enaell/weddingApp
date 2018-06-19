@@ -5,7 +5,6 @@
 <link href="stylesheets/css/homePage/homePagePortfolio.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/homePageMap.css" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
-
 <!--Navigation-->
 <div class="vertical-nav" id="homePageVerticalNav">
 	<ul>
@@ -270,16 +269,18 @@
 
 	<%
 	var icon = '';
+	var dateOptions = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+
 	for (var i = 0; i < tripSteps.length; ++i)
 	{
-		if (tripSteps[i].priority > 2)
+		if (tripSteps[i].priority < 3) // 3 is visiting places or attempting a show
 		{
-			if (tripSteps[i].type == 'city')
-				icon = 'images/img/timeline/icon-picture.svg';
-			else if (tripSteps[i].type == 'monument')
-				icon = 'images/img/timeline/icon-movie.svg';
-			else
-				icon = 'images/img/timeline/icon-location.svg';
+		if (tripSteps[i].type == 'city')
+			icon = 'images/img/timeline/icon-picture.svg';
+		else if (tripSteps[i].type == 'monument')
+			icon = 'images/img/timeline/icon-movie.svg';
+		else
+			icon = 'images/img/timeline/icon-location.svg';
 	%>
 	<div class="timeline-block">
 		<div class="timeline-img picture is-hidden">
@@ -290,12 +291,11 @@
 			<h2><%=tripSteps[i].title%></h2>
 			<p> <%=tripSteps[i].description%> </p>
 			<button type="button" class="btn btn-primary">Read More</button>
-			<span class="date"><%=tripSteps[i].date%></span>
+			<span class="date"><%= tripSteps[i].date %></span>
 		</div> <!-- timeline-content -->
 	</div> <!-- timeline-block -->
 	<%	}
 	}%>
-
 </section>
 
 <!-- Our Projects-->>
@@ -442,7 +442,6 @@
 </section>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB475-TngUlJcYR1YzHQUaIBjAyCQbpkj4"></script>
 <script src="javascripts/js/homePage/homePageMain.js"></script>
 <script src="javascripts/js/homePage/homePagePortfolio.js"></script>
 <script src="javascripts/js/homePage/homePageMap.js"></script>

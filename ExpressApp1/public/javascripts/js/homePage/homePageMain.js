@@ -17,6 +17,11 @@
 		newsBoxIsShown.push(false);
 	});
 
+	// set locale time in timeline date
+	$('#homePageTimeline.timeline .timeline-content .date').each(function ()
+	{
+		$(this).html((new Date($(this).html())).toLocaleString('fr-FR', { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
+	});
 
 	function mainSectionSmoothScroll(distance, direction)
 	{

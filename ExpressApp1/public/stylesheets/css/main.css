@@ -83,6 +83,114 @@ Main Components
 	transform: scale(1);
 }
 
+body #mainSection
+{
+	overflow-x: hidden;
+	font-family: 'Roboto Slab','Helvetica Neue',Helvetica,Arial,sans-serif
+}
+
+#mainSection p
+{
+	line-height: 1.75
+}
+
+#mainSection a
+{
+	color: #de3b3b
+}
+
+	#mainSection a:hover
+	{
+		color: #BA1636
+	}
+
+#mainSection .text-primary
+{
+	color: #fed136 !important
+}
+
+#mainSection .section-heading
+{
+	font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	color: #d0636c;
+	font-weight: 900;
+	font-size: 50px;
+}
+
+#mainSection section
+{
+	padding: 100px 0;
+}
+
+	#mainSection section h2.section-heading
+	{
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+
+	#mainSection section h2.subsection-heading
+	{
+		font-family: Tangerine, Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+		color: #d0636c;
+		font-weight: 900;
+		font-size: 50px;
+		padding-top: 40px;
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+
+	#mainSection section h3.section-subheading
+	{
+		font-size: 16px;
+		font-weight: 400;
+		font-style: italic;
+		margin-bottom: 75px;
+		text-transform: none;
+		font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif
+	}
+
+
+
+@media (min-width:768px)
+{
+	#mainSection section
+	{
+		/*padding: 150px 0*/
+	}
+}
+
+#mainSection .btn
+{
+	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-weight: 700;
+	font-size: inherit;
+}
+
+#mainSection .btn-xl
+{
+	font-size: 18px;
+	padding: 20px 40px
+}
+
+#mainSection .btn-primary
+{
+	background-color: #d0636c;
+	border-color: #d0636c;
+	color: #fff
+}
+
+	#mainSection .btn-primary:active, #mainSection .btn-primary:focus, #mainSection .btn-primary:hover
+	{
+		background-color: #D13844 !important;
+		border-color: #D13844 !important;
+		color: #fff
+	}
+
+	#mainSection .btn-primary:active, #mainSection .btn-primary:focus
+	{
+		box-shadow: 0 0 0 .2rem rgba(254,209,55,.5) !important
+	}
+
 
 #welcomeSection {
 	display: inline-block;

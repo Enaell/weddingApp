@@ -47,7 +47,6 @@ router.get('/', function (req, res)
 			function (err, results)
 			{
 				res.render('homePage/homePageView', {
-					url: 'http://localhost:808/',
 					title: 'Main Page',
 					loggedin: loggedIn,
 					introBoxes: introBoxes,
