@@ -37,6 +37,8 @@ container.addEventListener('ps-scroll-y', function ()
 		if ($(this).find('.timeline-img').hasClass('is-hidden') && $(this).offset().top < $(window).height() * 3 / 4)
 			$(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
 	})
+
+	$('.fillTimeLine').offset({ top: 0, left: $('#homePageVerticalNav').offset.left });
 });
 
 // set locale time in timeline date
