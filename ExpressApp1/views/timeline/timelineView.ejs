@@ -1,15 +1,19 @@
 ﻿
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<!--<link rel="stylesheet" href="stylesheets/css/timeline/reset.css">--> <!-- CSS reset -->
+<!--<link rel="stylesheet" href="stylesheets/css/timeline/reset.css">--> <!-- CSS reset -->
 <link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
-	<!--<script src="javascripts/js/modernizr.js"></script>--> <!-- Modernizr -->
+<link rel="stylesheet" href="stylesheets/css/timeline/agenda.css"> <!-- Resource style -->
 
-<section id="timeline" class="container">
+<%
+ 		tripSteps.sort(function(a,b){return a.date > b.date ? 1 : -1 })
+ %>
+
+<section id="timeline">
 	<div class="schedule loading">
 		<div class="agenda">
 			<ul>
-				<li><span>06:00</span></li>
+				<!--<li><span>06:00</span></li>-->
 				<li><span>07:00</span></li>
 				<li><span>08:00</span></li>
 				<li><span>09:00</span></li>
@@ -27,153 +31,47 @@
 				<li><span>21:00</span></li>
 				<li><span>22:00</span></li>
 				<li><span>23:00</span></li>
-				<li><span>24:00</span></li>
+				<!--<li><span>24:00</span></li>-->
 			</ul>
-		</div> <!-- .timeline -->
+		</div> <!--agenda - liste of timers from 6 to 24-->
 
 		<div class="events">
 			<ul>
+			<%
+				var icon = '';
+				for (var i = 1; i <= 7; ++i)
+				{ 
+				console.log("i = " + i)
+			%>
 				<li class="events-group">
-					<div class="top-info"><span>Monday</span></div>
+					<div class="top-info"><span><%="Jour " + i %></span></div>
 
 					<ul>
-						<li class="single-event" data-start="09:0" data-end="11:00" data-content="event-abs-circuit" data-event="event-1">
+						<%
+						for (var j = 0; j < tripSteps.length; ++j)
+						{
+							console.log("j = " + j)
+						if (tripSteps[j].type !== 'city' && tripSteps[j].daynumber === i)
+						{
+						var startTime = tripSteps[j].date.split('T')[1].substring(0,5);
+						
+						var dateEndTime = new Date(tripSteps[j].date);
+						console.log(dateEndTime)
+						dateEndTime.setHours(dateEndTime.getHours() + tripSteps[j].duration);
+						var endTime = dateEndTime.toISOString().split('T')[1].substring(0,5).replace('00:', '24:');
+						%>
+						<li class="single-event" data-start="<%=startTime%>" data-end="<%=endTime%>" data-content="<%=tripSteps[j]._id%>" data-event="<%=tripSteps[j].type%>">
 							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
+								<em class="event-name"><%=tripSteps[j].title%></em>
 							</a>
 						</li>
 
-						<li class="single-event" data-start="11:00" data-end="13:00" data-content="event-rowing-workout" data-event="event-2">
-							<a href="#0">
-								<em class="event-name">Rowing Workout</em>
-							</a>
-						</li>
 
-						<li class="single-event" data-start="14:00" data-end="15:30" data-content="event-yoga-1" data-event="event-3">
-							<a href="#0">
-								<em class="event-name">Yoga Level 1</em>
-							</a>
-						</li>
+
+						<%}}%>
 					</ul>
 				</li>
-
-				<li class="events-group">
-					<div class="top-info"><span>Tuesday</span></div>
-
-					<ul>
-						<li class="single-event" data-start="10:00" data-end="11:00" data-content="event-rowing-workout" data-event="event-2">
-							<a href="#0">
-								<em class="event-name">Rowing Workout</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="11:30" data-end="13:00" data-content="event-restorative-yoga" data-event="event-4">
-							<a href="#0">
-								<em class="event-name">Restorative Yoga</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="15:45" data-end="16:45" data-content="event-yoga-1" data-event="event-3">
-							<a href="#0">
-								<em class="event-name">Yoga Level 1</em>
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="events-group">
-					<div class="top-info"><span>Wednesday</span></div>
-
-					<ul>
-						<li class="single-event" data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4">
-							<a href="#0">
-								<em class="event-name">Restorative Yoga</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
-							<a href="#0">
-								<em class="event-name">Yoga Level 1</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="12:00" data-end="13:45" data-content="event-rowing-workout" data-event="event-2">
-							<a href="#0">
-								<em class="event-name">Rowing Workout</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
-							<a href="#0">
-								<em class="event-name">Yoga Level 1</em>
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="events-group">
-					<div class="top-info"><span>Thursday</span></div>
-
-					<ul>
-						<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
-							</a>
-						</li>
-						<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
-							</a>
-						</li>
-						<li class="single-event" data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4">
-							<a href="#0">
-								<em class="event-name">Restorative Yoga</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="17:00" data-end="18:30" data-content="event-rowing-workout" data-event="event-2">
-							<a href="#0">
-								<em class="event-name">Rowing Workout</em>
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="events-group">
-					<div class="top-info"><span>Friday</span></div>
-
-					<ul>
-						<li class="single-event" data-start="10:00" data-end="11:00" data-content="event-rowing-workout" data-event="event-2">
-							<a href="#0">
-								<em class="event-name">Rowing Workout</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Abs Circuit</em>
-							</a>
-						</li>
-
-						<li class="single-event" data-start="15:45" data-end="16:45" data-content="event-yoga-1" data-event="event-3">
-							<a href="#0">
-								<em class="event-name">Yoga Level 1</em>
-							</a>
-						</li>
-					</ul>
-				</li>
+			<%}%>
 			</ul>
 		</div>
 
@@ -197,13 +95,10 @@
 
 		<div class="cover-layer"></div>
 	</div> <!-- .schedule -->
-	<div class="timeline">
+	<div class="timeline" style="display:none">
 		<h1>TIMELINE</h1>
 		<div class="fillTimeLine"></div>
 		<%
-
-		tripSteps.sort(function(a,b){return a.date > b.date ? 1 : -1 })
-
 		var icon = '';
 		for (var i = 0; i < tripSteps.length; ++i)
 		{
@@ -232,4 +127,5 @@
 	</div>
 </section> <!-- timeline -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="javascripts/js/timeline/timelineMain.js"></script> <!-- Resource jQuery -->
+<script src="javascripts/js/timeline/timelineMain.js"></script>
+<script src="javascripts/js/timeline/agenda.js"></script>
