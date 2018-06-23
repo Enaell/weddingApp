@@ -39,6 +39,12 @@ container.addEventListener('ps-scroll-y', function ()
 	})
 
 	$('.fillTimeLine').offset({ top: 0, left: $('#homePageVerticalNav').offset.left });
+
+	
+	$('.cover-layer').offset({ top: 0 });
+	$('.modal-is-open .event-modal').offset({ top: ($(window).height() - $('.modal-is-open .event-modal').height()) / 2, left: $('.modal-is-open .event-modal').offset.left });
+
+
 });
 
 // set locale time in timeline date

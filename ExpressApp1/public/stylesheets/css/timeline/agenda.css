@@ -55,21 +55,22 @@ Main Components
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 0;
     height: 1px;
     background: #EAEAEA;
   }
-  .schedule .agenda li:last-of-type::after {
+  /*.schedule .agenda li:last-of-type::after {
     display: none;
-  }
+  }*/
   .schedule .agenda li span {
     display: none;
   }
 }
 
 @media only screen and (min-width: 1000px) {
-  .schedule .agenda li::after {
-    width: calc(100% - 60px);
+  .schedule .agenda li::after 
+  {
+    width: calc(98% - 60px);
     left: 60px;
   }
   .schedule .agenda li span {
@@ -220,6 +221,8 @@ Main Components
   }
   .schedule .events .single-event a {
     padding: 1.2em;
+	overflow:hidden;
+	height:99%
   }
   .schedule .events .single-event:last-of-type {
     /* reset style */

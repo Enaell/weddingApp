@@ -133,7 +133,7 @@
 				self.animating = false;
 			});
 		} else {
-			var eventTop = event.offset().top - $(window).scrollTop(),
+			var eventTop = event.offset().top + $('.cover-layer')[0].offsetTop,
 				eventLeft = event.offset().left,
 				eventHeight = event.innerHeight(),
 				eventWidth = event.innerWidth();
@@ -157,7 +157,7 @@
 				height: modalHeight+'px',
 				width: modalWidth+'px',
 			});
-			transformElement(self.modal, 'translateY('+modalTranslateY+'px) translateX('+modalTranslateX+'px)');
+			transformElement(self.modal, 'translateY(' + (modalTranslateY + $('.cover-layer')[0].offsetTop) + 'px) translateX('+modalTranslateX+'px)');
 
 			//set modalHeader width
 			self.modalHeader.css({
@@ -209,7 +209,7 @@
 				event.removeClass('selected-event');
 			});
 		} else {
-			var eventTop = event.offset().top - $(window).scrollTop(),
+			var eventTop = event.offset().top + $('.cover-layer')[0].offsetTop,
 				eventLeft = event.offset().left,
 				eventHeight = event.innerHeight(),
 				eventWidth = event.innerWidth();
@@ -276,7 +276,7 @@
 			self.element.addClass('animation-completed');
 			var event = self.eventsGroup.find('.selected-event');
 
-			var eventTop = event.offset().top - $(window).scrollTop(),
+			var eventTop = event.offset().top + $('.cover-layer')[0].offsetTop,
 				eventLeft = event.offset().left,
 				eventHeight = event.innerHeight(),
 				eventWidth = event.innerWidth();

@@ -10,11 +10,19 @@
  %>
 
 <section id="timeline">
+
+	<%
+	var i = 0;
+	console.log(i);
+	for (var numWeek = 0; numWeek <= 1; ++numWeek) 
+	{%>
+	<h2> Semaine <%=numWeek + 1%> </h2>
 	<div class="schedule loading">
+
 		<div class="agenda">
 			<ul>
 				<!--<li><span>06:00</span></li>-->
-				<li><span>07:00</span></li>
+				<!--<li><span>07:00</span></li>-->
 				<li><span>08:00</span></li>
 				<li><span>09:00</span></li>
 				<li><span>10:00</span></li>
@@ -27,34 +35,33 @@
 				<li><span>17:00</span></li>
 				<li><span>18:00</span></li>
 				<li><span>19:00</span></li>
-				<li><span>20:30</span></li>
-				<li><span>21:00</span></li>
-				<li><span>22:00</span></li>
-				<li><span>23:00</span></li>
-				<!--<li><span>24:00</span></li>-->
+				<li><span>20:00</span></li>
+			<!--	<li><span>21:00</span></li>-->
+				<!--<li><span>22:00</span></li>-->
+				<!--<li><span>23:00</span></li>-->
+				<li><span>24:00</span></li>
 			</ul>
-		</div> <!--agenda - liste of timers from 6 to 24-->
-
+		</div> <!--agenda - liste of timers from 7 to 24-->
+		
 		<div class="events">
 			<ul>
-			<%
-				var icon = '';
-				for (var i = 1; i <= 7; ++i)
-				{ 
-				console.log("i = " + i)
-			%>
+				<%
+				for (; i % 7 != 0 || i === (7 * numWeek); ++i) // 7*numWeek is here to make the loop start otherwise,  when i == 0 or 7 the first time, the loop end
+				{
+				console.log("i = " + (i + 1))
+				%>
 				<li class="events-group">
-					<div class="top-info"><span><%="Jour " + i %></span></div>
+					<div class="top-info"><span><%="Jour " + (i + 1) %></span></div>
 
 					<ul>
 						<%
 						for (var j = 0; j < tripSteps.length; ++j)
 						{
-							console.log("j = " + j)
-						if (tripSteps[j].type !== 'city' && tripSteps[j].daynumber === i)
+						console.log("j = " + j)
+						if (tripSteps[j].type !== 'city' && tripSteps[j].daynumber === i + 1)
 						{
 						var startTime = tripSteps[j].date.split('T')[1].substring(0,5);
-						
+
 						var dateEndTime = new Date(tripSteps[j].date);
 						console.log(dateEndTime)
 						dateEndTime.setHours(dateEndTime.getHours() + tripSteps[j].duration);
@@ -66,12 +73,10 @@
 							</a>
 						</li>
 
-
-
 						<%}}%>
 					</ul>
 				</li>
-			<%}%>
+				<%}%>
 			</ul>
 		</div>
 
@@ -94,7 +99,15 @@
 		</div>
 
 		<div class="cover-layer"></div>
-	</div> <!-- .schedule -->
+	</div>
+	<%
+	console.log("numweek = numWeek");
+	}%>
+
+
+
+
+
 	<div class="timeline" style="display:none">
 		<h1>TIMELINE</h1>
 		<div class="fillTimeLine"></div>
