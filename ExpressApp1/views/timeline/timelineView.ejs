@@ -2,114 +2,21 @@
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 <!--<link rel="stylesheet" href="stylesheets/css/timeline/reset.css">--> <!-- CSS reset -->
+<link rel="stylesheet" href="stylesheets/css/timeline/timeLineMain.css"> <!-- Resource style -->
 <link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
 <link rel="stylesheet" href="stylesheets/css/timeline/agenda.css"> <!-- Resource style -->
-
 <%
  		tripSteps.sort(function(a,b){return a.date > b.date ? 1 : -1 })
  %>
 
 <section id="timeline">
 
-	<%
-	var i = 0;
-	console.log(i);
-	for (var numWeek = 0; numWeek <= 1; ++numWeek) 
-	{%>
-	<h2> Semaine <%=numWeek + 1%> </h2>
-	<div class="schedule loading">
-
-		<div class="agenda">
-			<ul>
-				<!--<li><span>06:00</span></li>-->
-				<!--<li><span>07:00</span></li>-->
-				<li><span>08:00</span></li>
-				<li><span>09:00</span></li>
-				<li><span>10:00</span></li>
-				<li><span>11:00</span></li>
-				<li><span>12:00</span></li>
-				<li><span>13:00</span></li>
-				<li><span>14:00</span></li>
-				<li><span>15:00</span></li>
-				<li><span>16:00</span></li>
-				<li><span>17:00</span></li>
-				<li><span>18:00</span></li>
-				<li><span>19:00</span></li>
-				<li><span>20:00</span></li>
-			<!--	<li><span>21:00</span></li>-->
-				<!--<li><span>22:00</span></li>-->
-				<!--<li><span>23:00</span></li>-->
-				<li><span>24:00</span></li>
-			</ul>
-		</div> <!--agenda - liste of timers from 7 to 24-->
-		
-		<div class="events">
-			<ul>
-				<%
-				for (; i % 7 != 0 || i === (7 * numWeek); ++i) // 7*numWeek is here to make the loop start otherwise,  when i == 0 or 7 the first time, the loop end
-				{
-				console.log("i = " + (i + 1))
-				%>
-				<li class="events-group">
-					<div class="top-info"><span><%="Jour " + (i + 1) %></span></div>
-
-					<ul>
-						<%
-						for (var j = 0; j < tripSteps.length; ++j)
-						{
-						console.log("j = " + j)
-						if (tripSteps[j].type !== 'city' && tripSteps[j].daynumber === i + 1)
-						{
-						var startTime = tripSteps[j].date.split('T')[1].substring(0,5);
-
-						var dateEndTime = new Date(tripSteps[j].date);
-						console.log(dateEndTime)
-						dateEndTime.setHours(dateEndTime.getHours() + tripSteps[j].duration);
-						var endTime = dateEndTime.toISOString().split('T')[1].substring(0,5).replace('00:', '24:');
-						%>
-						<li class="single-event" data-start="<%=startTime%>" data-end="<%=endTime%>" data-content="<%=tripSteps[j]._id%>" data-event="<%=tripSteps[j].type%>">
-							<a href="#0">
-								<em class="event-name"><%=tripSteps[j].title%></em>
-							</a>
-						</li>
-
-						<%}}%>
-					</ul>
-				</li>
-				<%}%>
-			</ul>
-		</div>
-
-		<div class="event-modal">
-			<header class="header">
-				<div class="content">
-					<span class="event-date"></span>
-					<h3 class="event-name"></h3>
-				</div>
-
-				<div class="header-bg"></div>
-			</header>
-
-			<div class="body">
-				<div class="event-info"></div>
-				<div class="body-bg"></div>
-			</div>
-
-			<a href="#0" class="close">Close</a>
-		</div>
-
-		<div class="cover-layer"></div>
-	</div>
-	<%
-	console.log("numweek = numWeek");
-	}%>
-
-
-
-
-
-	<div class="timeline" style="display:none">
+	<div class="timeline main-content">
 		<h1>TIMELINE</h1>
+
+		<a href="#0" class="btn modal-trigger">Start Effect</a>
+
+
 		<div class="fillTimeLine"></div>
 		<%
 		var icon = '';
@@ -138,6 +45,108 @@
 		</div> <!-- timeline-block -->
 		<%}}%>
 	</div>
+
+	<div class="modal">
+		<div class="modal-content">
+			<%
+			var i = 0;
+			for (var numWeek = 0; numWeek <= 1; ++numWeek)
+			{%>
+			<h2> Semaine <%=numWeek + 1%> </h2>
+			<div class="schedule loading">
+
+				<div class="agenda">
+					<ul>
+						<!--<li><span>06:00</span></li>-->
+						<!--<li><span>07:00</span></li>-->
+						<li><span>08:00</span></li>
+						<li><span>09:00</span></li>
+						<li><span>10:00</span></li>
+						<li><span>11:00</span></li>
+						<li><span>12:00</span></li>
+						<li><span>13:00</span></li>
+						<li><span>14:00</span></li>
+						<li><span>15:00</span></li>
+						<li><span>16:00</span></li>
+						<li><span>17:00</span></li>
+						<li><span>18:00</span></li>
+						<li><span>19:00</span></li>
+						<li><span>20:00</span></li>
+						<!--	<li><span>21:00</span></li>-->
+						<!--<li><span>22:00</span></li>-->
+						<!--<li><span>23:00</span></li>-->
+						<li><span>24:00</span></li>
+					</ul>
+				</div> <!--agenda - liste of timers from 7 to 24-->
+
+				<div class="events">
+					<ul>
+						<%
+						for (; i % 7 != 0 || i === (7 * numWeek); ++i) // 7*numWeek is here to make the loop start otherwise,  when i == 0 or 7 the first time, the loop end
+						{
+						%>
+						<li class="events-group">
+							<div class="top-info"><span><%="Jour " + (i + 1) %></span></div>
+
+							<ul>
+								<%
+								for (var j = 0; j < tripSteps.length; ++j)
+								{
+								if (tripSteps[j].type !== 'city' && tripSteps[j].daynumber === i + 1)
+								{
+								var startTime = tripSteps[j].date.split('T')[1].substring(0,5);
+
+								var dateEndTime = new Date(tripSteps[j].date);
+								dateEndTime.setHours(dateEndTime.getHours() + tripSteps[j].duration);
+								var endTime = dateEndTime.toISOString().split('T')[1].substring(0,5).replace('00:', '24:');
+								%>
+								<li class="single-event" data-start="<%=startTime%>" data-end="<%=endTime%>" data-content="<%=tripSteps[j]._id%>" data-event="<%=tripSteps[j].type%>">
+									<a href="#0">
+										<em class="event-name"><%=tripSteps[j].title%></em>
+									</a>
+								</li>
+
+								<%}}%>
+							</ul>
+						</li>
+						<%}%>
+					</ul>
+				</div>
+
+				<div class="event-modal">
+					<header class="header">
+						<div class="content">
+							<span class="event-date"></span>
+							<h3 class="event-name"></h3>
+						</div>
+
+						<div class="header-bg"></div>
+					</header>
+
+					<div class="body">
+						<div class="event-info"></div>
+						<div class="body-bg"></div>
+					</div>
+
+					<a href="#0" class="close">Close</a>
+				</div>
+
+				<div class="cover-layer"></div>
+			</div>
+			<%
+			}%>
+		</div> <!-- .modal-content -->
+
+		<a href="#0" class="modal-close">Close</a>
+
+	</div> <!-- .modal -->
+
+	<div class="transition-layer">
+		<div class="bg-layer"></div>
+	</div> <!-- .transition-layer -->
+
+
+
 </section> <!-- timeline -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="javascripts/js/timeline/timelineMain.js"></script>

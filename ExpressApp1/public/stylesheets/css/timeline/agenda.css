@@ -405,7 +405,7 @@ Main Components
 
 .schedule .event-modal .body-bg {
   z-index: 1;
-  background: white;
+  background: transparent;
   -webkit-transform-origin: top left;
       -ms-transform-origin: top left;
           transform-origin: top left;

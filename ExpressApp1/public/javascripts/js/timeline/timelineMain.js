@@ -1,34 +1,4 @@
 
-//console.log('lol');
-
-
-//var timelineBlocks = $('.timeline-block');
-//var offset = 0.8;
-
-//hide timeline blocks which are outside the viewport
-//hideBlocks(timelineBlocks, offset);
-	//on scolling, show/animate timeline blocks when enter the viewport
-//$(window).on('scroll', function(){
-//	(!window.requestAnimationFrame) 
-//		? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
-//		: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
-//});
-
-//function hideBlocks(blocks, offset)
-//{
-//	blocks.each(function(){
-//		( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.timeline-img, .timeline-content').addClass('is-hidden');
-//	});
-//}
-
-//function showBlocks(blocks, offset)
-//{
-//	blocks.each(function ()
-//	{
-//		( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-img').hasClass('is-hidden') ) && $(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
-//	});
-//}
-
 container.addEventListener('ps-scroll-y', function () 
 {
 
@@ -52,3 +22,78 @@ $('#timelinePage .timeline .timeline-content .date').each(function ()
 {
 	$(this).html((new Date($(this).html())).toLocaleString('fr-FR', { weekday: "long", year: "numeric", month: "long", day: "numeric" }));
 });
+
+var modalTrigger = $('.modal-trigger'),
+	transitionLayer = $('.transition-layer'),
+	transitionBackground = transitionLayer.children(),
+	modalWindow = $('.modal');
+
+var frameProportion = 1.78, //png frame aspect ratio
+	frames = 25, //number of png frames
+	resize = false;
+
+//set transitionBackground dimentions
+setLayerDimensions();
+$(window).on('resize', function ()
+{
+	if (!resize)
+	{
+		resize = true;
+		(!window.requestAnimationFrame) ? setTimeout(setLayerDimensions, 300) : window.requestAnimationFrame(setLayerDimensions);
+	}
+});
+
+//open modal window
+modalTrigger.on('click', function (event)
+{
+	event.preventDefault();
+	transitionLayer.addClass('visible opening');
+	var delay = ($('.no-cssanimations').length > 0) ? 0 : 600;
+	setTimeout(function ()
+	{
+		$('.timeline.main-content').hide();
+		ps.update();
+		$('#mainNav').fadeOut();
+		modalWindow.addClass('visible');
+	}, delay);
+});
+
+//close modal window
+modalWindow.on('click', '.modal-close', function (event)
+{
+	event.preventDefault();
+	$('.timeline.main-content').show();
+	ps.update();
+	transitionLayer.addClass('closing');
+	modalWindow.removeClass('visible');
+	transitionBackground.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function ()
+	{
+		transitionLayer.removeClass('closing opening visible');
+		transitionBackground.off('webkitAnimationEnd oanimationend msAnimationEnd animationend');
+		$('#mainNav').fadeIn();
+	});
+});
+
+function setLayerDimensions()
+{
+	var windowWidth = $(window).width(),
+		windowHeight = $(window).height(),
+		layerHeight, layerWidth;
+
+	if (windowWidth / windowHeight > frameProportion)
+	{
+		layerWidth = windowWidth;
+		layerHeight = layerWidth / frameProportion;
+	} else
+	{
+		layerHeight = windowHeight * 1.2;
+		layerWidth = layerHeight * frameProportion;
+	}
+
+	transitionBackground.css({
+		'width': layerWidth * frames + 'px',
+		'height': layerHeight + 'px',
+	});
+
+	resize = false;
+}
