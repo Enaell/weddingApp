@@ -92,7 +92,7 @@
 
 	container.addEventListener('ps-scroll-y', function () 
 	{
-		$('#homePageVerticalNav').offset({ top: 0, left: $('#homePageVerticalNav').offset.left });
+		$('#homePage #homePageVerticalNav').offset({ top: 0, left: $('#homePage #homePageVerticalNav').offset.left });
 		updateSections();
 
 		if (!portfolioIsShown && $('#portfolio').offset().top < $(window).height() * 3 / 4)
@@ -101,13 +101,13 @@
 			portfolioIsShown = true;
 		}
 
-		$('.timeline-block').each(function()
+		$('#homePage .timeline-block').each(function()
 		{
 			if ($(this).find('.timeline-img').hasClass('is-hidden') && $(this).offset().top < $(window).height() * 3 / 4)
 				$(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
 		})
 
-		$('.news-box').each(function (index)
+		$('#homePage .news-box').each(function (index)
 		{
 			if (!newsBoxIsShown[index] && $(this).offset().top < $(window).height() * 3 / 4)
 				newsBox(index, $(this))

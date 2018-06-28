@@ -403,13 +403,15 @@ Main Components
   width: 100%;
 }
 
-.schedule .event-modal .body-bg {
-  z-index: 1;
-  background: transparent;
-  -webkit-transform-origin: top left;
-      -ms-transform-origin: top left;
-          transform-origin: top left;
-}
+	.schedule .event-modal .body-bg
+	{
+		z-index: 1;
+		background: transparent;
+		-webkit-transform-origin: top left;
+		-ms-transform-origin: top left;
+		transform-origin: top left;
+		background-color: white;
+	}
 
 .schedule .event-modal .header-bg {
   z-index: 2;

@@ -119,16 +119,7 @@ Main components
 	}
 
 
-.fillTimeLine
-{
-    position: fixed;
-    width: 4px;
-    height: 69vh;
-    left: 50%;
-    margin-top: -24vh;
-    background-color: red;
-    z-index: 1;
-}
+
 
 #timelinePage .timeline-block::before
 {

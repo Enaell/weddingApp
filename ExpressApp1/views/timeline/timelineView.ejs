@@ -11,41 +11,47 @@
 
 <section id="timeline">
 
+
 	<div class="timeline main-content">
-		<h1>TIMELINE</h1>
+		<div class="background appeared">
+		</div>
+		<div class="background disappeared">
+		</div>
 
-		<a href="#0" class="btn modal-trigger">Start Effect</a>
+		<div style="width: 90%; margin: auto; max-width: 1500px;">
+			<div class="introduction">
+				<h1>TIMELINE</h1>
+				<a href="#0" class="btn modal-trigger">Start Effect</a>
+			</div>
+			<div class="fillTimeLine"></div>
+			<%
+			var icon = '';
+			for (var i = 0; i < tripSteps.length; ++i)
+			{
+			if (tripSteps[i].priority < 5) // 5 is not important hotel, lunch, etc .. 6 is transport
+			{
+			if (tripSteps[i].type == 'city')
+			icon = 'images/img/timeline/icon-picture.svg';
+			else if (tripSteps[i].type == 'monument')
+			icon = 'images/img/timeline/icon-movie.svg';
+			else
+			icon = 'images/img/timeline/icon-location.svg';
+			%>
+			<div class="timeline-block">
+				<div value="<%=tripSteps[i].imageUrl%>" class="timeline-img picture <%if(i != 0){%>is-hidden<%}%>">
+					<img src="<%=icon%>" alt="Picture">
+				</div> <!-- timeline-img -->
 
-
-		<div class="fillTimeLine"></div>
-		<%
-		var icon = '';
-		for (var i = 0; i < tripSteps.length; ++i)
-		{
-		if (tripSteps[i].priority < 5) // 5 is not important hotel, lunch, etc .. 6 is transport
-		{
-		if (tripSteps[i].type == 'city')
-		icon = 'images/img/timeline/icon-picture.svg';
-		else if (tripSteps[i].type == 'monument')
-		icon = 'images/img/timeline/icon-movie.svg';
-		else
-		icon = 'images/img/timeline/icon-location.svg';
-		%>
-		<div class="timeline-block">
-			<div class="timeline-img picture is-hidden">
-				<img src="<%=icon%>" alt="Picture">
-			</div> <!-- timeline-img -->
-
-			<div class="timeline-content is-hidden">
-				<h2><%=tripSteps[i].title%></h2>
-				<p> <%=tripSteps[i].description%> </p>
-				<button type="button" class="btn btn-primary">Read More</button>
-				<span class="date"><%=tripSteps[i].date%></span>
-			</div> <!-- timeline-content -->
-		</div> <!-- timeline-block -->
-		<%}}%>
+				<div class="timeline-content <%if(i != 0){%>is-hidden<%}%>">
+					<h2><%=tripSteps[i].title%></h2>
+					<p> <%=tripSteps[i].description%> </p>
+					<button type="button" class="btn btn-primary">Read More</button>
+					<span class="date"><%=tripSteps[i].date%></span>
+				</div> <!-- timeline-content -->
+			</div> <!-- timeline-block -->
+			<%}}%>
+		</div>
 	</div>
-
 	<div class="modal">
 		<div class="modal-content">
 			<%

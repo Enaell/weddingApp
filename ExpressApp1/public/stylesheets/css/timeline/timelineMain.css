@@ -53,6 +53,33 @@ Typography
 Main Content
 
 -------------------------------- */
+#timeline .background
+{
+	height: 100vh;
+	width: 100%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	z-index: -1;
+	/*opacity:0;
+	transition: opacity 1s ease-in-out;*/
+}
+	#timeline .background.appeared
+	{
+		/*opacity: 1;*/
+	}
+
+	#timeline .background.disappeared
+	{
+		/*opacity: 0;*/
+	}
+
+
 #timeline .main-content
 {
 	position: relative;
@@ -62,7 +89,13 @@ Main Content
 	/* vertically align its content */
 	display: table;
 	background-color: transparent;
+	margin: auto;
 }
+
+	#timeline .main-content .timeline-content .date
+	{
+		color: white;
+	}
 
 	#timeline .main-content .center
 	{
@@ -71,6 +104,25 @@ Main Content
 		vertical-align: middle;
 		text-align: center;
 	}
+
+#timeline .introduction
+{
+	text-align: center;
+
+	padding-bottom: 100px;
+}
+
+.fillTimeLine
+{
+	position: fixed;
+	width: 4px;
+	/*height: 66vh;
+	max-height: 66vh;*/
+	left: 50%;
+	/*margin-top: -24vh;*/
+	background-color: #ba1636;
+	z-index: -1;
+}
 
 /* -------------------------------- 
 
