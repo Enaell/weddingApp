@@ -160,71 +160,38 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 		navbarCollapse();
 	});
 
-	function showPage(pageId)
+	function showPage(pageId, pageUrl)
 	{
 		$('.page').each(function ()
 		{
 			var page = $(this);
 			if (this.id !== pageId)
-			{
 				page.removeClass('shown');
-				document.querySelector('#mainSection').scrollTop = 0;
-				ps.update();
-			}
-			else if (pageId === "homePage")
-			{
-				if (page.children().length == 0)
-				{
-					$.ajax({
-						method: "GET",
-						url: "http://localhost:1337/homepage",
-						success: function (data)
-						{
-							//data is the resultant html when gets created by res.render()
-							// wanna show it, add it to the dom
-							page.html(data);
-							page.addClass('shown');
-							document.querySelector('#mainSection').scrollTop = 0;
-							ps.update();
-						}
-					});
-				}
-				else
-				{
-					page.addClass('shown');
-					document.querySelector('#mainSection').scrollTop = 0;
-					ps.update();
-				}
-
-			}
 			else
 			{
 				if (page.children().length == 0) // CA MARCHE ! OMG !!
 				{
 					$.ajax({
 						method: "GET",
-						url: "http://localhost:1337/timeline",
+						url: "http://localhost:1337/" + pageUrl,
 						success: function (data)
 						{
 							//data is the resultant html when gets created by res.render()
 							// wanna show it, add it to the dom
 							page.html(data);
 							page.addClass('shown');
-							document.querySelector('#mainSection').scrollTop = 0;
-							ps.update();
 						}
 					});
 				}
 				else
-				{
 					page.addClass('shown');
-					document.querySelector('#mainSection').scrollTop = 0;
-					ps.update();
-				}
 			}
-		})
+		});
+
+		document.querySelector('#mainSection').scrollTop = 0;
+		ps.update();
 	}
 
 	// show homePage when site is loading
-	showPage("homePage");
+	showPage("homePage", "homepage");
 
