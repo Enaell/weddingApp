@@ -160,8 +160,57 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 		navbarCollapse();
 	});
 
+
+
+	var isAnimating = false;
+	var newLocation = '';
+	var firstLoad = false;
+
+
+	//trigger smooth transition from the actual page to the new one 
 	function showPage(pageId, pageUrl)
 	{
+		//if the page is not already being animated - trigger animation
+		if (!isAnimating)
+			changePage(pageId, pageUrl, true);
+		firstLoad = true;
+	};
+
+	//detect the 'popstate' event - e.g. user clicking the back button
+	// $(window).on('popstate', function() {
+	//   if( firstLoad ) {
+	/*
+	Safari emits a popstate event on page load - check if firstLoad is true before animating
+	if it's false - the page has just been loaded 
+	*/
+	// var newPageArray = location.pathname.split('/'),
+	//this is the url of the page to be loaded 
+	// newPage = newPageArray[newPageArray.length - 1];
+
+	//     if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, false);
+	//   }
+	//   firstLoad = true;
+	// });
+
+	function changePage(pageId, url, bool) 
+	{
+		isAnimating = true;
+		// trigger page animation
+		$('#mainPageBlock').addClass('page-is-changing');
+		$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+		{
+			loadNewContent(pageId, url, bool);
+			newLocation = url;
+			$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+		});
+	}
+
+	function loadNewContent(pageId, url, bool) 
+	{
+		var url = 'http://localhost:1337/' + url;
+		var section = $('#' + pageId);
+
+
 		$('.page').each(function ()
 		{
 			var page = $(this);
@@ -171,25 +220,58 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 			{
 				if (page.children().length == 0) // CA MARCHE ! OMG !!
 				{
-					$.ajax({
-						method: "GET",
-						url: "http://localhost:1337/" + pageUrl,
-						success: function (data)
+					section.load(url, function (responseTxt, statusTxt, xhr)
+					{
+						// load new content and replace <main> content with the new one
+						// $('main').html(section);
+						//if browser doesn't support CSS transitions - dont wait for the end of transitions
+						var delay = 1200;
+						setTimeout(function ()
 						{
-							//data is the resultant html when gets created by res.render()
-							// wanna show it, add it to the dom
-							page.html(data);
-							page.addClass('shown');
-						}
+							//wait for the end of the transition on the loading bar before revealing the new content
+							//( section.hasClass('about') ) ? $('body').addClass('about') : $('body').removeClass('about');
+							$('#mainPageBlock').removeClass('page-is-changing');
+							$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+							{
+								isAnimating = false;
+								$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+							});
+
+						}, delay);
+
+						//if (url != window.location && bool)
+						//{
+						//	//add the new page to the window.history
+						//	//if the new page was triggered by a 'popstate' event, don't add it
+						//	window.history.pushState({ path: url }, '', url);
+						//}
 					});
 				}
+
 				else
-					page.addClass('shown');
+				{
+					var delay = 1200;
+					setTimeout(function ()
+					{
+						//wait for the end of the transition on the loading bar before revealing the new content
+						//( section.hasClass('about') ) ? $('body').addClass('about') : $('body').removeClass('about');
+						$('#mainPageBlock').removeClass('page-is-changing');
+						$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+						{
+							isAnimating = false;
+							$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+						});
+
+					}, delay);
+				}
+
+				page.addClass('shown');
 			}
 		});
 
 		document.querySelector('#mainSection').scrollTop = 0;
 		ps.update();
+
 	}
 
 	// show homePage when site is loading
