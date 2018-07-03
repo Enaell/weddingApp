@@ -82,6 +82,9 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 
 	var canScroll = true;
 
+
+
+
 	function mainSectionSmoothScroll(distance, direction)
 	{
 		var minDistance = 0;
@@ -167,14 +170,52 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 	var firstLoad = false;
 
 
+
 	//trigger smooth transition from the actual page to the new one 
 	function showPage(pageId, pageUrl)
 	{
 		//if the page is not already being animated - trigger animation
 		if (!isAnimating)
-			changePage(pageId, pageUrl, true);
+			triggerScrollToTop(pageId, pageUrl)
 		firstLoad = true;
 	};
+
+	function triggerScrollToTop(pageId, pageUrl)
+	{
+		var distance = $('.page.shown').offset().top * -1;
+		//if (canScroll)
+		//{
+			mainSectionScrollTop(distance, pageId, pageUrl);
+			//canScroll = false;
+		//}
+	}
+
+	function mainSectionScrollTop(distance, pageId, pageUrl)
+	{
+		var minDistance = 0;
+		var delay = 250;
+
+		if (distance == 0)
+			delay = 0;
+
+		if (distance > 5)
+		{
+			minDistance = Math.min(70, distance / 5);
+
+			document.querySelector('#mainSection').scrollTop -= (minDistance);
+			distance -= minDistance;
+			setTimeout(function ()
+			{
+				mainSectionScrollTop(distance, pageId, pageUrl);
+			}, 5);
+		}
+		else
+		{
+			//canScroll = true;
+			changePage(pageId, pageUrl, delay);
+		}
+	}
+
 
 	//detect the 'popstate' event - e.g. user clicking the back button
 	// $(window).on('popstate', function() {
@@ -192,20 +233,26 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 	//   firstLoad = true;
 	// });
 
-	function changePage(pageId, url, bool) 
+
+	function changePage(pageId, url, delay) 
 	{
 		isAnimating = true;
-		// trigger page animation
-		$('#mainPageBlock').addClass('page-is-changing');
-		$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+		//triggerScrollToTop();
+		setTimeout(function ()
 		{
-			loadNewContent(pageId, url, bool);
-			newLocation = url;
-			$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-		});
+				//	 trigger page animation
+
+			$('#mainPageBlock').addClass('page-is-changing');
+			$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+			{
+				loadNewContent(pageId, url);
+				newLocation = url;
+				$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+			});
+		}, delay);
 	}
 
-	function loadNewContent(pageId, url, bool) 
+	function loadNewContent(pageId, url) 
 	{
 		var url = 'http://localhost:1337/' + url;
 		var section = $('#' + pageId);
