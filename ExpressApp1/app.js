@@ -16,6 +16,7 @@ var adminRoutes = require('./routes/adminRoutes');
 var authRoutes = require('./routes/authRoutes');
 var homePageRoutes = require('./routes/homePage');
 var timelineRoutes = require('./routes/timeline');
+var projectRoutes = require('./routes/project');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/Admin', adminRoutes);
 app.use('/Auth', authRoutes);
 app.use('/homepage', homePageRoutes);
 app.use('/timeline', timelineRoutes);
+app.use('/project', projectRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -273,14 +273,14 @@
 
 	for (var i = 0; i < tripSteps.length; ++i)
 	{
-		if (tripSteps[i].priority < 3) // 3 is visiting places or attempting a show
-		{
-		if (tripSteps[i].type == 'city')
-			icon = 'images/img/timeline/icon-picture.svg';
-		else if (tripSteps[i].type == 'monument')
-			icon = 'images/img/timeline/icon-movie.svg';
-		else
-			icon = 'images/img/timeline/icon-location.svg';
+	if (tripSteps[i].priority < 3) // 3 is visiting places or attempting a show
+	{
+	if (tripSteps[i].type == 'city')
+	icon = 'images/img/timeline/icon-picture.svg';
+	else if (tripSteps[i].type == 'monument')
+	icon = 'images/img/timeline/icon-movie.svg';
+	else
+	icon = 'images/img/timeline/icon-location.svg';
 	%>
 	<div class="timeline-block">
 		<div class="timeline-img picture is-hidden">
@@ -440,8 +440,8 @@
 		</div>
 	</div>
 </section>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 <script src="javascripts/js/homePage/homePageMain.js"></script>
 <script src="javascripts/js/homePage/homePagePortfolio.js"></script>
 <script src="javascripts/js/homePage/homePageMap.js"></script>
