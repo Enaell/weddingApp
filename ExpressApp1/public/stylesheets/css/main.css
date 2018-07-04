@@ -263,6 +263,13 @@ body #mainSection
 	-webkit-transition: -webkit-transform 0.4s 0.4s;
 	-moz-transition: -moz-transform 0.4s 0.4s;
 	transition: transform 0.4s 0.4s;
+
+	visibility: hidden;
+}
+
+#mainPageBlock.isVisible::after, #mainPageBlock.isVisible::before
+{
+	visibility:visible;
 }
 
 #mainPageBlock::before

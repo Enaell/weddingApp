@@ -212,6 +212,7 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 		else
 		{
 			//canScroll = true;
+			$('#mainPageBlock').addClass('isVisible');
 			changePage(pageId, pageUrl, delay);
 		}
 	}
@@ -282,7 +283,12 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 							{
 								isAnimating = false;
 								$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+								setTimeout(function ()
+								{
+									$('#mainPageBlock').removeClass('isVisible');
+								}, 300);
 							});
+
 
 						}, delay);
 
@@ -292,6 +298,8 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 						//	//if the new page was triggered by a 'popstate' event, don't add it
 						//	window.history.pushState({ path: url }, '', url);
 						//}
+
+
 					});
 				}
 
@@ -307,7 +315,10 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 						{
 							isAnimating = false;
 							$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-						});
+							setTimeout(function ()
+							{
+								$('#mainPageBlock').removeClass('isVisible');
+							}, 300);						});
 
 					}, delay);
 				}
@@ -318,9 +329,9 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 
 		document.querySelector('#mainSection').scrollTop = 0;
 		ps.update();
-
 	}
 
+	
 	// show homePage when site is loading
 	showPage("homePage", "homepage");
 
