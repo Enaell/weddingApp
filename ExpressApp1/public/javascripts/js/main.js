@@ -318,7 +318,8 @@ var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 							setTimeout(function ()
 							{
 								$('#mainPageBlock').removeClass('isVisible');
-							}, 300);						});
+							}, 300);
+						});
 
 					}, delay);
 				}
