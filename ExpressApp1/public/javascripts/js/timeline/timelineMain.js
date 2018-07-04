@@ -194,3 +194,4 @@ function setLayerDimensions()
 	resize = false;
 }
 
+updateTimeLineBg();
