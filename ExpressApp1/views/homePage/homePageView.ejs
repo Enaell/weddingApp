@@ -5,14 +5,13 @@
 <link href="stylesheets/css/homePage/homePagePortfolio.css" rel="stylesheet">
 <link href="stylesheets/css/homePage/homePageMap.css" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/css/timeline/timelineStyle.css"> <!-- Resource style -->
-
 <!--Navigation-->
 <div class="vertical-nav" id="homePageVerticalNav">
 	<ul>
 		<li><a href="#intro" class="active"><span class="label">Intro</span></a></li>
 		<li><a href="#services"><span class="label">Services</span></a></li>
 		<li><a href="#portfolio"><span class="label">Portfolio</span></a></li>
-		<li><a href="#timeline"><span class="label">le Marriage</span></a></li>
+		<li><a href="#homePageTimeline"><span class="label">le Marriage</span></a></li>
 		<li><a href="#contact"><span class="label">Contact</span></a></li>
 	</ul>
 </div><!-- .vertical-nav -->
@@ -264,22 +263,24 @@
 </section>
 
 <!-- Timeline -->
-<section id="timeline" class="container">
-	<h2 class="section-heading text-center">Lieu du Mariage</h2>
+<section id="homePageTimeline" class="container timeline">
+	<h2 class="section-heading text-center">Le Mariage</h2>
 	<h3 class="section-subheading text-center" style="padding-bottom: 30px">Dongtai, Yancheng, Jiangsu, China</h3>
 
 	<%
 	var icon = '';
+	var dateOptions = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+
 	for (var i = 0; i < tripSteps.length; ++i)
 	{
-		if (tripSteps[i].priority > 2)
+		if (tripSteps[i].priority < 3) // 3 is visiting places or attempting a show
 		{
-			if (tripSteps[i].type == 'city')
-				icon = 'images/img/timeline/icon-picture.svg';
-			else if (tripSteps[i].type == 'monument')
-				icon = 'images/img/timeline/icon-movie.svg';
-			else
-				icon = 'images/img/timeline/icon-location.svg';
+		if (tripSteps[i].type == 'city')
+			icon = 'images/img/timeline/icon-picture.svg';
+		else if (tripSteps[i].type == 'monument')
+			icon = 'images/img/timeline/icon-movie.svg';
+		else
+			icon = 'images/img/timeline/icon-location.svg';
 	%>
 	<div class="timeline-block">
 		<div class="timeline-img picture is-hidden">
@@ -290,12 +291,11 @@
 			<h2><%=tripSteps[i].title%></h2>
 			<p> <%=tripSteps[i].description%> </p>
 			<button type="button" class="btn btn-primary">Read More</button>
-			<span class="date"><%=tripSteps[i].date%></span>
+			<span class="date"><%= tripSteps[i].date %></span>
 		</div> <!-- timeline-content -->
 	</div> <!-- timeline-block -->
 	<%	}
 	}%>
-
 </section>
 
 <!-- Our Projects-->>
@@ -442,7 +442,6 @@
 </section>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB475-TngUlJcYR1YzHQUaIBjAyCQbpkj4"></script>
 <script src="javascripts/js/homePage/homePageMain.js"></script>
 <script src="javascripts/js/homePage/homePagePortfolio.js"></script>
 <script src="javascripts/js/homePage/homePageMap.js"></script>

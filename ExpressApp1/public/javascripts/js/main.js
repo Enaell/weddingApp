@@ -2,8 +2,6 @@
 var ps = new PerfectScrollbar('#mainSection', { suppressScrollX: true });
 
 
-jQuery(document).ready(function ($)
-{
 	var MQ = window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
 	$(window).on('resize', function ()
 	{
@@ -84,6 +82,9 @@ jQuery(document).ready(function ($)
 
 	var canScroll = true;
 
+
+
+
 	function mainSectionSmoothScroll(distance, direction)
 	{
 		var minDistance = 0;
@@ -145,9 +146,12 @@ jQuery(document).ready(function ($)
 
 	// Collapse Navbar
 	var navbarCollapse = function () {
-		if (document.querySelector('#mainSection').scrollTop > 100) {
+		if (document.querySelector('#mainSection').scrollTop > 100) 
+		{
 			$("#mainNav").addClass("navbar-shrink");
-		} else {
+		}
+		else 
+		{
 			$("#mainNav").removeClass("navbar-shrink");
 		}
 	};
@@ -161,44 +165,173 @@ jQuery(document).ready(function ($)
 
 
 
+	var isAnimating = false;
+	var newLocation = '';
+	var firstLoad = false;
 
 
-});
 
-function showPage(pageId)
-{
-	$('.page').each(function ()
+	//trigger smooth transition from the actual page to the new one 
+	function showPage(pageId, pageUrl)
 	{
-		var page = $(this);
-		if (this.id !== pageId)
+		//if the page is not already being animated - trigger animation
+		if (!isAnimating)
+			triggerScrollToTop(pageId, pageUrl)
+		firstLoad = true;
+	};
+
+	function triggerScrollToTop(pageId, pageUrl)
+	{
+		var distance = $('.page.shown').offset().top * -1;
+		//if (canScroll)
+		//{
+			mainSectionScrollTop(distance, pageId, pageUrl);
+			//canScroll = false;
+		//}
+	}
+
+	function mainSectionScrollTop(distance, pageId, pageUrl)
+	{
+		var minDistance = 0;
+		var delay = 250;
+
+		if (distance == 0)
+			delay = 0;
+
+		if (distance > 5)
 		{
-			page.removeClass('shown');
-			document.querySelector('#mainSection').scrollTop = 0;
-			ps.update();
-		} else
-		{
-			if (page.children().length == 0) // CA MARCHE ! OMG !!
+			minDistance = Math.min(70, distance / 5);
+
+			document.querySelector('#mainSection').scrollTop -= (minDistance);
+			distance -= minDistance;
+			setTimeout(function ()
 			{
-				$.ajax({
-					method: "GET",
-					url: "http://localhost:1337/timeline",
-					success: function (data)
-					{
-						//data is the resultant html when gets created by res.render()
-						// wanna show it, add it to the dom
-						page.html(data);
-						page.addClass('shown');
-						document.querySelector('#mainSection').scrollTop = 0;
-						ps.update();
-					}
-				});
-			}
+				mainSectionScrollTop(distance, pageId, pageUrl);
+			}, 5);
+		}
+		else
+		{
+			//canScroll = true;
+			$('#mainPageBlock').addClass('isVisible');
+			changePage(pageId, pageUrl, delay);
+		}
+	}
+
+
+	//detect the 'popstate' event - e.g. user clicking the back button
+	// $(window).on('popstate', function() {
+	//   if( firstLoad ) {
+	/*
+	Safari emits a popstate event on page load - check if firstLoad is true before animating
+	if it's false - the page has just been loaded 
+	*/
+	// var newPageArray = location.pathname.split('/'),
+	//this is the url of the page to be loaded 
+	// newPage = newPageArray[newPageArray.length - 1];
+
+	//     if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, false);
+	//   }
+	//   firstLoad = true;
+	// });
+
+
+	function changePage(pageId, url, delay) 
+	{
+		isAnimating = true;
+		//triggerScrollToTop();
+		setTimeout(function ()
+		{
+				//	 trigger page animation
+
+			$('#mainPageBlock').addClass('page-is-changing');
+			$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+			{
+				loadNewContent(pageId, url);
+				newLocation = url;
+				$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+			});
+		}, delay);
+	}
+
+	function loadNewContent(pageId, url) 
+	{
+		var url = 'http://localhost:1337/' + url;
+		var section = $('#' + pageId);
+
+
+		$('.page').each(function ()
+		{
+			var page = $(this);
+			if (this.id !== pageId)
+				page.removeClass('shown');
 			else
 			{
+				if (page.children().length == 0) // CA MARCHE ! OMG !!
+				{
+					section.load(url, function (responseTxt, statusTxt, xhr)
+					{
+						// load new content and replace <main> content with the new one
+						// $('main').html(section);
+						//if browser doesn't support CSS transitions - dont wait for the end of transitions
+						var delay = 1200;
+						setTimeout(function ()
+						{
+							//wait for the end of the transition on the loading bar before revealing the new content
+							//( section.hasClass('about') ) ? $('body').addClass('about') : $('body').removeClass('about');
+							$('#mainPageBlock').removeClass('page-is-changing');
+							$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+							{
+								isAnimating = false;
+								$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+								setTimeout(function ()
+								{
+									$('#mainPageBlock').removeClass('isVisible');
+								}, 300);
+							});
+
+
+						}, delay);
+
+						//if (url != window.location && bool)
+						//{
+						//	//add the new page to the window.history
+						//	//if the new page was triggered by a 'popstate' event, don't add it
+						//	window.history.pushState({ path: url }, '', url);
+						//}
+
+
+					});
+				}
+
+				else
+				{
+					var delay = 1200;
+					setTimeout(function ()
+					{
+						//wait for the end of the transition on the loading bar before revealing the new content
+						//( section.hasClass('about') ) ? $('body').addClass('about') : $('body').removeClass('about');
+						$('#mainPageBlock').removeClass('page-is-changing');
+						$('.loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function ()
+						{
+							isAnimating = false;
+							$('.loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+							setTimeout(function ()
+							{
+								$('#mainPageBlock').removeClass('isVisible');
+							}, 300);						});
+
+					}, delay);
+				}
+
 				page.addClass('shown');
-				document.querySelector('#mainSection').scrollTop = 0;
-				ps.update();
 			}
-		}
-	})
-}
+		});
+
+		document.querySelector('#mainSection').scrollTop = 0;
+		ps.update();
+	}
+
+	
+	// show homePage when site is loading
+	showPage("homePage", "homepage");
+

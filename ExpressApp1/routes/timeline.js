@@ -12,9 +12,8 @@ router.use(function (req, res, next)
 	next();
 });
 
-router.get('/', function (req, res) {
-
-
+router.get('/', function (req, res) 
+{
 	//render timeline 
 	var url = 'mongodb://localhost:27017';
 	mongodb.connect(url, function (err, client)
@@ -26,11 +25,21 @@ router.get('/', function (req, res) {
 		collection.find({}).toArray(
 			function (err, results)
 			{
-				res.render('timeline/timelineView', { title: 'Timeline', tripSteps: results });
+				res.render('timeline/timelineView',
+					{ title: 'Timeline', tripSteps: results });
 				client.close();
 			});
 	});
 	//res.render('timelineView', { title: 'Timeline' });
+});
+
+router.get('/eventpicture/:filename', function (req, res)
+{
+
+//	console.log(__dirname)
+//	console.log(__dirname + '\\..\\public\\images\\img\\timeline\\events\\' + req.params.filename);
+//	res.sendFile('C:\\Users\\oreli\\Documents\\Visual Studio 2017\\Projects\\ExpressApp1\\ExpressApp1\\public\\images\\img\\timeline\\events\\' + req.params.filename);
+	res.sendFile(__dirname.replace('\\routes', '\\public\\images\\img\\timeline\\events\\') + req.params.filename);
 });
 
 module.exports = router;
