@@ -3,10 +3,10 @@
 	padding-top: 100px;
 }
 
-#projectPage::after
-{
+/*#projectPage::after
+{*/
 	/* dark overlay layer - visible when we fire .quick-view */
-	position: fixed;
+/*	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -18,8 +18,8 @@
 	-moz-transition: opacity .3s 0s, visibility 0s .3s;
 	transition: opacity .3s 0s, visibility 0s .3s;
 }
-
-@media only screen and (min-width: 1024px)
+*/
+/*@media only screen and (min-width: 1024px)
 {
 	#projectPage.overlay-layer::after
 	{
@@ -29,7 +29,19 @@
 		-moz-transition: opacity .3s 0s, visibility 0s 0s;
 		transition: opacity .3s 0s, visibility 0s 0s;
 	}
-}
+}*/
+
+	#projectPage .overlay-layer
+	{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(71, 55, 78, 0.8);
+		z-index: 1;
+	}
 
 #projectPage h1
 {

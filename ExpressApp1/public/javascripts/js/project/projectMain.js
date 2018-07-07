@@ -5,13 +5,28 @@
 	var sliderFinalWidth = 400,
 		maxQuickWidth = 900;
 
+	container.addEventListener('ps-scroll-y', function () 
+	{
+
+		//	$('#timelinePage .fillTimeLine').offset({ top: 0, left: $('#timelinePage .fillTimeLine').offset.left });
+		//$('#timelinePage .fillTimeLine').height($(window).height() * 2 / 3 - $('#timelinePage .fillTimeLine').offset().top)
+
+		$('#projectPage .overlay-layer').offset({ top: 0 });
+		resizeQuickView();
+		//$('#timelinePage .modal-is-open .event-modal').offset({ top: ($(window).height() - $('#timelinePage .modal-is-open .event-modal').height()) / 2, left: $('#timelinePage .modal-is-open .event-modal').offset.left });
+	});
+
+
 	//open the quick view panel
 	$('#projectPage .trigger').on('click', function (event)
 	{
 		var selectedImage = $(this).parent('.item').children('img'),
 			slectedImageUrl = selectedImage.attr('src');
 
-		$('#projectPage').addClass('overlay-layer');
+
+		$('.overlay-layer').fadeIn();
+		$('#projectPage .overlay-layer').offset({ top: 0 });
+
 		animateQuickView(selectedImage, sliderFinalWidth, maxQuickWidth, 'open');
 
 		//update the visible slider image in the quick view panel
@@ -20,13 +35,17 @@
 	});
 
 	//close the quick view panel
-	$('#projectPage').on('click', function (event)
+	$('.overlay-layer').on('click', function ()
 	{
-		if ($(event.target).is('.close') || $(event.target).is('#projectPage.overlay-layer'))
-		{
-			closeQuickView(sliderFinalWidth, maxQuickWidth);
-		}
+		closeQuickView(sliderFinalWidth, maxQuickWidth);
+
+		//if ($(event.target).is('.close') || $(event.target).is('#projectPage.overlay-layer'))
+		//{
+		//	closeQuickView(sliderFinalWidth, maxQuickWidth);
+		//}
 	});
+
+
 	$(document).keyup(function (event)
 	{
 		//check if user has pressed 'Esc'
@@ -73,8 +92,11 @@
 	{
 		var quickViewLeft = ($(window).width() - $('#projectPage .quick-view').width()) / 2,
 			quickViewTop = ($(window).height() - $('#projectPage .quick-view').height()) / 2;
+
+		//$('#projectPage .quick-view').offset({ top: quickViewTop, left: quickViewLeft });
+
 		$('#projectPage .quick-view').css({
-			"top": quickViewTop,
+			"top": -$('#projectPage').offset().top + quickViewTop,
 			"left": quickViewLeft,
 		});
 	}
@@ -93,6 +115,7 @@
 		{
 			closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
 		}
+		$('.overlay-layer').fadeOut();
 	}
 
 	function animateQuickView(image, finalWidth, maxQuickWidth, animationType)
@@ -112,19 +135,24 @@
 			quickViewWidth = (windowWidth * .8 < maxQuickWidth) ? windowWidth * .8 : maxQuickWidth,
 			quickViewLeft = (windowWidth - quickViewWidth) / 2;
 
+		//var quickViewLeft = ($(window).width() - $('#projectPage .quick-view').width()) / 2,
+		var	quickViewTop = ($(window).height() - $('#projectPage .quick-view').height()) / 2;
+
 		if (animationType == 'open')
 		{
+
 			//hide the image in the gallery
 			parentListItem.addClass('empty-box');
 			//place the quick view over the image gallery and give it the dimension of the gallery image
-			$('#projectPage .quick-view').css({
-				"top": topSelected,
+			$('#projectPage .quick-view').css(
+			{
+				"top": -$('#projectPage').offset().top + topSelected,
 				"left": leftSelected,
 				"width": widthSelected,
 			}).velocity({
 				//animate the quick view: animate its width and center it in the viewport
 				//during this animation, only the slider image is visible
-				'top': finalTop + 'px',
+				'top': -$('#projectPage').offset().top + finalTop + 'px',
 				'left': finalLeft + 'px',
 				'width': finalWidth + 'px',
 			}, 1000, [400, 20], function ()
@@ -143,14 +171,14 @@
 		{
 			//close the quick view reverting the animation
 			$('#projectPage .quick-view').removeClass('add-content').velocity({
-				'top': finalTop + 'px',
+				'top': -$('#projectPage').offset().top + finalTop + 'px',
 				'left': finalLeft + 'px',
 				'width': finalWidth + 'px',
 			}, 300, 'ease', function ()
 			{
 				$('#projectPage').removeClass('overlay-layer');
 				$('#projectPage .quick-view').removeClass('animate-width').velocity({
-					"top": topSelected,
+					"top": -$('#projectPage').offset().top + topSelected,
 					"left": leftSelected,
 					"width": widthSelected,
 				}, 500, 'ease', function ()
@@ -171,7 +199,7 @@
 		$('#projectPage').removeClass('overlay-layer');
 		parentListItem.removeClass('empty-box');
 		$('#projectPage .quick-view').velocity("stop").removeClass('add-content animate-width is-visible').css({
-			"top": topSelected,
+			"top": -$('#projectPage').offset().top + topSelected,
 			"left": leftSelected,
 			"width": widthSelected,
 		});
