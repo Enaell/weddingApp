@@ -20,7 +20,7 @@ router.use(function (req, res, next)
 // date = isoString of beginning time
 // duration = duration of the activity in hour
 // description = description in detail of the activity
-// x and y coordinate are for fun if I need
+// x and y csoordinate are for fun if I need
 
 var timeZoneOffSet = (new Date()).getTimezoneOffset() / -60
 
@@ -548,6 +548,92 @@ var steps =
 		}
 	];
 
+var projects =
+	[
+		{
+			title: 'Canapé d\'angle convertible',
+			description: 'Profitez d\'un confort suprême avec ce canapé d\'angle droit cinq places au toucher velours! Chacun pourra trouver sa position idéale grâce à ses têtières individuellement ajustables. Son garnissage en mousse généreux lui confère une assise moelleuse. En un seul geste, il se transforme en un couchage d\'appoint confortable pour deux personnes.',
+			price: 1000,
+			payed: 0,
+			imageUrls:['sofa/1.jpg','sofa/2.jpg','sofa/3.jpg']
+		},
+		{
+			title: 'Machine à laver',
+			description: '',
+			price: 400,
+			payed: 0,
+			imageUrls: ['washingMachine/1.jpg', 'washingMachine/2.jpg', 'washingMachine/3.jpg']
+		},
+		{
+			title: 'Ampoule connectée',
+			description: 'La Yeelight E27 9W RGB LED est l\'une des premières ampoules connectées du constructeur chinois Xiaomi.',
+			price: 50,
+			payed: 0,
+			imageUrls: ['lights/1.jpg', 'lights/2.jpg', 'lights/3.jpg']
+		},
+		{	title: 'Réfrigérateur',
+			description: 'Avec sa ligne esthétique épuré et sa finition inox, ce réfrigérateur trouvera sa place dans les cuisines les plus modernes ! ',
+			price: 500,
+			payed: 0,
+			imageUrls: ['refrigerator/1.jpg', 'refrigerator/2.jpg', 'refrigerator/3.jpg']
+		},
+		{
+			title: 'Canapé d\'angle convertible',
+			description: 'Profitez d\'un confort suprême avec ce canapé d\'angle droit cinq places au toucher velours! Chacun pourra trouver sa position idéale grâce à ses têtières individuellement ajustables. Son garnissage en mousse généreux lui confère une assise moelleuse. En un seul geste, il se transforme en un couchage d\'appoint confortable pour deux personnes.',
+			price: 1000,
+			payed: 0,
+			imageUrls: ['sofa/1.jpg', 'sofa/2.jpg', 'sofa/3.jpg']
+		},
+		{
+			title: 'Machine à laver',
+			description: '',
+			price: 400,
+			payed: 0,
+			imageUrls: ['washingMachine/1.jpg', 'washingMachine/2.jpg', 'washingMachine/3.jpg']
+		},
+		{
+			title: 'Ampoule connectée',
+			description: 'La Yeelight E27 9W RGB LED est l\'une des premières ampoules connectées du constructeur chinois Xiaomi.',
+			price: 50,
+			payed: 0,
+			imageUrls: ['lights/1.jpg', 'lights/2.jpg', 'lights/3.jpg']
+		},
+		{
+			title: 'Réfrigérateur',
+			description: 'Avec sa ligne esthétique épuré et sa finition inox, ce réfrigérateur trouvera sa place dans les cuisines les plus modernes ! ',
+			price: 500,
+			payed: 0,
+			imageUrls: ['refrigerator/1.jpg', 'refrigerator/2.jpg', 'refrigerator/3.jpg']
+		},
+		{
+			title: 'Canapé d\'angle convertible',
+			description: 'Profitez d\'un confort suprême avec ce canapé d\'angle droit cinq places au toucher velours! Chacun pourra trouver sa position idéale grâce à ses têtières individuellement ajustables. Son garnissage en mousse généreux lui confère une assise moelleuse. En un seul geste, il se transforme en un couchage d\'appoint confortable pour deux personnes.',
+			price: 1000,
+			payed: 0,
+			imageUrls: ['sofa/1.jpg', 'sofa/2.jpg', 'sofa/3.jpg']
+		},
+		{
+			title: 'Machine à laver',
+			description: '',
+			price: 400,
+			payed: 0,
+			imageUrls: ['washingMachine/1.jpg', 'washingMachine/2.jpg', 'washingMachine/3.jpg']
+		},
+		{
+			title: 'Ampoule connectée',
+			description: 'La Yeelight E27 9W RGB LED est l\'une des premières ampoules connectées du constructeur chinois Xiaomi.',
+			price: 50,
+			payed: 0,
+			imageUrls: ['lights/1.jpg', 'lights/2.jpg', 'lights/3.jpg']
+		},
+		{
+			title: 'Réfrigérateur',
+			description: 'Avec sa ligne esthétique épuré et sa finition inox, ce réfrigérateur trouvera sa place dans les cuisines les plus modernes ! ',
+			price: 500,
+			payed: 0,
+			imageUrls: ['refrigerator/1.jpg', 'refrigerator/2.jpg', 'refrigerator/3.jpg']
+		}
+	]
 
 router.get('/addTripSteps', function (req, res)
 {
@@ -566,5 +652,21 @@ router.get('/addTripSteps', function (req, res)
 	});
 });
 
+router.get('/addProjects', function (req, res)
+{
+	var url = 'mongodb://localhost:27017';
+	mongodb.connect(url, function (err, client)
+	{
+		var db = client.db('weddingApp');
+
+		var collection = db.collection('projects');
+
+		collection.insertMany(projects, function (err, results)
+		{
+			res.send(results);
+			client.close();
+		});
+	});
+});
 
 module.exports = router;
