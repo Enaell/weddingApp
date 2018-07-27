@@ -12,74 +12,79 @@
 		<%
 		console.log(projects)
 		console.log(projects.length)
+		var percentage = 0;
 		for (var i = 0; i < projects.length; ++i)
 		{
-
+		percentage = 100 * projects[i].payed / projects[i].price;
 		console.log(projects[i])%>
-		<li class="item"> <!--to make it work, image location must be the same in item image and quick view image too-->
+		<li class="item">
+			<!--to make it work, image location must be the same in item image and quick view image too-->
 			<img src="<%= 'http://localhost:1337/project/projectpicture/' + projects[i].imageUrls[0]%>" alt="Item Preview"> <!--projects[i].imageUrls[0]-->
+			<div class="percentageLayout" style="height:<%= percentage %>%">
+				<p style="padding-top: 10px; font-size:<%= percentage / 100 * 3 %>em"> <%= percentage %> % </p>
+			</div>
 			<a href="#0" class="trigger">Quick View</a>
 		</li> <!-- item -->
 		<%}%>
 		<!--<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>
 
-		<li class="item">
-			<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
-			<a href="#0" class="trigger">Quick View</a>
-		</li>-->
+	<li class="item">
+		<img src="images/img/projects/items/item-1.jpg" alt="Item Preview">
+		<a href="#0" class="trigger">Quick View</a>
+	</li>-->
 	</ul> <!-- items -->
 
 	<div class="quick-view">
