@@ -20,9 +20,23 @@
 	//open the quick view panel
 	$('#projectPage .trigger').on('click', function (event)
 	{
-		var selectedImage = $(this).parent('.item').children('img'),
-			slectedImageUrl = selectedImage.attr('src');
+		var newPicture = $(this).parent('.item').children('img').attr('src'); // get src of img in same item as trigger.
 
+		console.log(newPicture)
+
+		$($(".quick-view .slider img")[0]).attr('src', newPicture);
+		$($(".quick-view .slider img")[1]).attr('src', newPicture.replace('1.jpg', '2.jpg'));
+		$($(".quick-view .slider img")[2]).attr('src', newPicture.replace('1.jpg', '3.jpg'));
+
+
+		//for (var i = 1; i <= $(".quick-view .slider img").length; ++i)
+		//	$($(".quick-view .slider img")[i - 1]).attr('src', newPicture.replace((i-1), i));
+
+		var selectedImage = $(this).parent('.item').children('img'),
+			selectedImageUrl = selectedImage.attr('src');
+
+
+			
 
 		$('.overlay-layer').fadeIn();
 		$('#projectPage .overlay-layer').offset({ top: 0 });
@@ -31,7 +45,7 @@
 
 		//update the visible slider image in the quick view panel
 		//you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
-		updateQuickView(slectedImageUrl);
+		updateQuickView(selectedImageUrl);
 	});
 
 	//close the quick view panel
