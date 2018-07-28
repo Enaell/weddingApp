@@ -337,6 +337,7 @@ main .page > div {
 .page::after
 {
 	bottom: 0;
+	z-index: -1;
 }
 /*main .page.index {*/
 /* .page basic style - index page */

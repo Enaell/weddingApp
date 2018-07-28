@@ -23,7 +23,7 @@
 			<div class="percentageLayout" style="height:<%= percentage %>%">
 				<p style="padding-top: 10px; font-size:<%= percentage / 100 * 3 %>em"> <%= percentage %> % </p>
 			</div>
-			<a href="#0" class="trigger">Quick View</a>
+			<a href="#0" class="trigger" payed="<%=projects[i].payed%>" price="<%=projects[i].price%>">Quick View</a>
 		</li> <!-- item -->
 		<%}%>
 		<!--<li class="item">
@@ -105,9 +105,18 @@
 			<h2>Produt Title</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
 
+
+			<div class="range-slider">
+				<input class="range-slider__range" type="range" value="<%=projects[0].payed%>" min="<%= projects[0].payed %>" max="<%=projects[0].price%>">
+				<span class="range-slider__value"><%=projects[0].payed%></span>
+			</div>
+
 			<ul class="item-action">
-				<li><button class="add-to-cart">Add to cart</button></li>
-				<li><a href="#0">Learn more</a></li>
+				<!--<li></li>-->
+				<li><input class="form-control" type="text" placeholder="Price" required data-validation-required-message="Please chose a price"></li>
+				<li>
+					<button class="pay">Add to cart</button>
+				</li>
 			</ul> <!-- item-action -->
 		</div> <!-- item-info -->
 		<a href="#0" class="close">Close</a>

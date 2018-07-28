@@ -1,5 +1,33 @@
 ﻿jQuery(document).ready(function ($)
 {
+
+	var rangeSlider = function ()
+	{
+		$('.range-slider__value').html($('.range-slider__range').val());
+		$('.item-action .form-control').val($('.range-slider__range').val() - $('.range-slider__range').attr('min'));
+
+		$('.range-slider__range').on('input', function ()
+		{
+			$('.range-slider__value').html($(this).val());
+			$('.item-action .form-control').val($(this).val() - $(this).attr('min'));
+		});
+
+		$('.item-action .form-control').on('input', function ()
+		{
+			if (isNaN(parseInt($(this).val())) || parseInt($(this).val()) < 0)
+				$(this).val(0);
+			else if (parseInt($(this).val()) > $('.range-slider__range').attr('max') - $('.range-slider__range').attr('min'))
+				$(this).val($('.range-slider__range').attr('max') - $('.range-slider__range').attr('min'));
+
+			$('.range-slider__value').html(parseInt($(this).val()) + parseInt($('.range-slider__range').attr('min')));
+			$('.range-slider__range').val(parseInt($(this).val()) + parseInt($('.range-slider__range').attr('min')));
+		});
+	};
+
+	rangeSlider();
+
+
+
 	//final width --> this is the quick view image slider width
 	//maxQuickWidth --> this is the max-width of the quick-view panel
 	var sliderFinalWidth = 400,
@@ -28,6 +56,12 @@
 		$($(".quick-view .slider img")[1]).attr('src', newPicture.replace('1.jpg', '2.jpg'));
 		$($(".quick-view .slider img")[2]).attr('src', newPicture.replace('1.jpg', '3.jpg'));
 
+		$(".quick-view .item-info .range-slider__range").attr("max", $(this).attr("price"));
+		$(".quick-view .item-info .range-slider__range").attr("min", $(this).attr("payed"));
+
+		$(".quick-view .item-info .range-slider__range").val(0);
+		$('.quick-view .item-info .range-slider__value').html($('.range-slider__range').val());
+		$(".quick-view .item-action .form-control").val(0);
 
 		//for (var i = 1; i <= $(".quick-view .slider img").length; ++i)
 		//	$($(".quick-view .slider img")[i - 1]).attr('src', newPicture.replace((i-1), i));
