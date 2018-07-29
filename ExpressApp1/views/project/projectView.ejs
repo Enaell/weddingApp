@@ -1,6 +1,6 @@
 ﻿<link href="stylesheets/css/project/projectMain.css" rel="stylesheet">
 <section>
-	<div class="introduction">
+	<div class="introduction" style="padding-bottom: 0">
 
 		<h1>Liste de Mariage</h1>
 
@@ -17,13 +17,13 @@
 		{
 		percentage = 100 * projects[i].payed / projects[i].price;
 		console.log(projects[i])%>
-		<li class="item">
+		<li class="item" id="<%=projects[i]._id%>">
 			<!--to make it work, image location must be the same in item image and quick view image too-->
 			<img src="<%= 'http://localhost:1337/project/projectpicture/' + projects[i].imageUrls[0]%>" alt="Item Preview"> <!--projects[i].imageUrls[0]-->
 			<div class="percentageLayout" style="height:<%= percentage %>%">
 				<p style="padding-top: 10px; font-size:<%= percentage / 100 * 3 %>em"> <%= percentage %> % </p>
 			</div>
-			<a href="#0" class="trigger" payed="<%=projects[i].payed%>" price="<%=projects[i].price%>">Quick View</a>
+			<a href="#0" class="trigger" payed="<%=projects[i].payed%>" price="<%=projects[i].price%>" num="<%=projects[i]._id%>">Quick View</a>
 		</li> <!-- item -->
 		<%}%>
 		<!--<li class="item">
@@ -97,6 +97,7 @@
 
 			<ul class="slider-navigation">
 				<li><a class="next" href="#0">Prev</a></li>
+
 				<li><a class="prev" href="#0">Next</a></li>
 			</ul> <!-- slider-navigation -->
 		</div> <!-- slider-wrapper -->
@@ -115,11 +116,17 @@
 				<!--<li></li>-->
 				<li><input class="form-control" type="text" placeholder="Price" required data-validation-required-message="Please chose a price"></li>
 				<li>
-					<button class="pay">Add to cart</button>
+					<button class="pay" num="" onclick="pay(parseInt($('.quick-view .range-slider .range-slider__range').val()), $(this).attr('num'))">Valider</button>
 				</li>
 			</ul> <!-- item-action -->
+			<span style="font-size: x-small; color: black;">attention le montant engagé pour financer ce cadeau ne peut pas être annulé</span>
 		</div> <!-- item-info -->
 		<a href="#0" class="close">Close</a>
+
+		<!--<div style="position:absolute; width:400px"> 
+			Etes vous sur de vouloir financer ce cadeau ? 
+			<button></button>
+		</div>-->
 	</div> <!-- quick-view -->
 </section>
 

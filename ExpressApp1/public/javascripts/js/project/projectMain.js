@@ -52,9 +52,13 @@
 
 		console.log(newPicture)
 
+		var numPicture = parseInt(newPicture[newPicture.length - 5]);
+
 		$($(".quick-view .slider img")[0]).attr('src', newPicture);
-		$($(".quick-view .slider img")[1]).attr('src', newPicture.replace('1.jpg', '2.jpg'));
-		$($(".quick-view .slider img")[2]).attr('src', newPicture.replace('1.jpg', '3.jpg'));
+		newPicture = newPicture.substr(0, newPicture.length - 5) + (numPicture % 3 + 1) + '.jpg';
+		$($(".quick-view .slider img")[1]).attr('src', newPicture);
+		newPicture = newPicture.substr(0, newPicture.length - 5) + (numPicture % 3 + 1) + '.jpg';
+		$($(".quick-view .slider img")[2]).attr('src', newPicture);
 
 		$(".quick-view .item-info .range-slider__range").attr("max", $(this).attr("price"));
 		$(".quick-view .item-info .range-slider__range").attr("min", $(this).attr("payed"));
@@ -62,6 +66,9 @@
 		$(".quick-view .item-info .range-slider__range").val(0);
 		$('.quick-view .item-info .range-slider__value').html($('.range-slider__range').val());
 		$(".quick-view .item-action .form-control").val(0);
+
+
+		$(".quick-view .item-action .pay").attr('num' ,$(this).attr('num'));
 
 		//for (var i = 1; i <= $(".quick-view .slider img").length; ++i)
 		//	$($(".quick-view .slider img")[i - 1]).attr('src', newPicture.replace((i-1), i));
@@ -253,3 +260,44 @@
 		});
 	}
 });
+
+function pay(price, num)
+{
+	//alert(price + ' - ' + num);
+	if (price != 0)
+	{
+		$.ajax({
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			url: 'http://localhost:1337/project/pay/' + num,
+			type: 'PATCH',
+			data: JSON.stringify({ payed: price }),
+			success: function (response, textStatus, jqXhr)
+			{
+				console.log("Project Successfully Patched!");
+				$('.quick-view .range-slider .range-slider__range').attr('min', price);
+
+				console.log('#' + num + ' .percentageLayout')
+
+				var percentage = 100 * parseInt(price) / parseInt($('#' + num + ' .trigger').attr('price'));
+				console.log(percentage);
+				$('#' + num + ' .percentageLayout').css('height', percentage + '%');
+				$('#' + num + ' .percentageLayout p').html(percentage + '%');
+				$('#' + num + ' .percentageLayout p').css('font-size', (parseInt(percentage) / 100 * 3) + 'em');
+				$('#' + num + ' .trigger').attr('payed', price);
+
+			},
+			error: function (jqXHR, textStatus, errorThrown)
+			{
+				// log the error to the console
+				console.log("The following error occured: " + textStatus, errorThrown);
+			},
+			complete: function ()
+			{
+				console.log("Project Patch Ran");
+			}
+		});
+	}
+}

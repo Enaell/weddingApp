@@ -423,11 +423,12 @@ Main components
 		#projectPage .slider-navigation li a::before, .slider-navigation li a::after
 		{
 			/* create arrows in CSS */
+			content: '';
 			position: absolute;
 			top: 18px;
 			left: 14px;
 			display: inline-block;
-			background: #ffffff;
+			background: black;
 			height: 3px;
 			width: 12px;
 		}
@@ -453,6 +454,11 @@ Main components
 #projectPage .add-content .slider-navigation li a
 {
 	opacity: .2;
+}
+
+#projectPage .add-content .slider-navigation li a:hover
+{
+	opacity: .7;
 }
 
 #projectPage .no-touch .slider-navigation li a:hover
